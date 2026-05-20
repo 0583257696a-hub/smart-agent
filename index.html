@@ -19,7 +19,198 @@
   </style>
 </head>
 <body>
-  <div class="app-shell">
+  <section id="publicPortal" class="portal-shell">
+    <header class="portal-header">
+      <a class="portal-logo" href="#landing" aria-label="מרכז תפעול לסוכן">
+        <span class="portal-logo-mark" aria-hidden="true"></span>
+        <span>
+          <strong>מרכז תפעול לסוכן</strong>
+          <small>Insurance Operations Platform</small>
+        </span>
+      </a>
+      <nav class="portal-nav" aria-label="ניווט">
+        <a href="#features">יכולות</a>
+        <a href="#security">אבטחה</a>
+        <a href="#workflow">תהליך עבודה</a>
+      </nav>
+      <div class="portal-actions">
+        <a class="portal-button ghost" href="#login">התחברות</a>
+        <a class="portal-button primary" href="#register">בקשת הצטרפות</a>
+      </div>
+    </header>
+
+    <main id="landingView" class="landing-view">
+      <section class="hero-section">
+        <div class="hero-copy">
+          <p class="section-kicker">פלטפורמת תפעול לסוכני ביטוח ופנסיה</p>
+          <h1>כל המידע התפעולי של הסוכנות במקום אחד, מסודר לפי הרשאות.</h1>
+          <p>
+            מערכת עברית, מהירה ומודולרית לניהול מיילים תפעוליים, תבניות, קודי מוסד,
+            מוקדי שירות, דמי ניהול ונתונים פרטיים של כל סוכנות.
+          </p>
+          <div class="hero-actions">
+            <a class="portal-button primary large" href="#register">שליחת בקשת הצטרפות</a>
+            <a class="portal-button ghost large" href="#login">כניסה למערכת</a>
+          </div>
+        </div>
+        <div class="hero-product" aria-label="תצוגה מקדימה של המערכת">
+          <div class="mock-toolbar">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="mock-search">חיפוש בטאב הנוכחי...</div>
+          <div class="mock-grid">
+            <div class="mock-side"></div>
+            <div class="mock-table">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="portal-section">
+        <div class="section-head">
+          <h2>בנוי לעבודה תפעולית אמיתית</h2>
+          <p>הפרדה בין מידע אוניברסלי לכל המשתמשים לבין מידע פרטי של כל סוכנות.</p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span class="feature-icon">01</span>
+            <h3>דאטה גלובלי</h3>
+            <p>מספרי בנקים, קודי מוסד, מוקדי שירות ותבניות כלליות לכל המשתמשים.</p>
+          </article>
+          <article>
+            <span class="feature-icon">02</span>
+            <h3>דאטה פרטי</h3>
+            <p>מספרי סוכן, מעסיקים, מפקחים, סיסמאות והסכמים פרטיים לפי סוכנות.</p>
+          </article>
+          <article>
+            <span class="feature-icon">03</span>
+            <h3>אישור מנהל</h3>
+            <p>משתמש חדש נרשם, ממתין לאישור, ורק לאחר אישור מקבל גישה למערכת.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="security" class="portal-section split-section">
+        <div>
+          <h2>הרשמה מבוקרת, לא פתוחה לכולם</h2>
+          <p>
+            ברירת המחדל המומלצת היא סטטוס ממתין לאישור. אתה מאשר משתמשים מפאנל אדמין,
+            קובע תפקיד, ובהמשך אפשר לשייך כל משתמש לסוכנות.
+          </p>
+        </div>
+        <div class="approval-card">
+          <span>בקשת משתמש חדשה</span>
+          <strong>ממתין לאישור מנהל</strong>
+          <div class="approval-actions">
+            <button type="button">אישור</button>
+            <button type="button">דחייה</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="portal-section workflow-section">
+        <div class="section-head">
+          <h2>איך זה יעבוד לאחר חיבור Supabase</h2>
+          <p>Netlify יישאר האתר, Supabase ינהל משתמשים, הרשאות ודאטה.</p>
+        </div>
+        <div class="workflow-steps">
+          <span>הרשמה</span>
+          <span>המתנה לאישור</span>
+          <span>אישור בפאנל אדמין</span>
+          <span>כניסה למערכת</span>
+        </div>
+      </section>
+    </main>
+
+    <main id="loginView" class="auth-view" hidden>
+      <form id="loginForm" class="auth-card">
+        <a class="auth-back" href="#landing">חזרה לדף הבית</a>
+        <h2>כניסה למערכת</h2>
+        <p>כניסה זמנית במצב הדגמה. החיבור האמיתי יתבצע מול Supabase.</p>
+        <label>אימייל
+          <input name="email" type="email" autocomplete="email" required placeholder="name@example.co.il">
+        </label>
+        <label>סיסמה
+          <input name="password" type="password" autocomplete="current-password" required placeholder="••••••••">
+        </label>
+        <button class="portal-button primary full" type="submit">כניסה</button>
+        <p class="auth-note">משתמש אדמין זמני: admin@abd-finance.co.il / 123456</p>
+        <a href="#register">אין לך משתמש? שלח בקשת הצטרפות</a>
+      </form>
+    </main>
+
+    <main id="registerView" class="auth-view" hidden>
+      <form id="registerForm" class="auth-card wide">
+        <a class="auth-back" href="#landing">חזרה לדף הבית</a>
+        <h2>בקשת הצטרפות</h2>
+        <p>הבקשה תישמר כרגע מקומית לצורך הדגמה. לאחר חיבור Supabase היא תגיע לפאנל האדמין שלך.</p>
+        <div class="auth-grid">
+          <label>שם מלא
+            <input name="fullName" required placeholder="שם מלא">
+          </label>
+          <label>אימייל
+            <input name="email" type="email" required placeholder="name@example.co.il">
+          </label>
+          <label>טלפון
+            <input name="phone" inputmode="tel" placeholder="050-0000000">
+          </label>
+          <label>שם סוכנות
+            <input name="agency" required placeholder="שם הסוכנות">
+          </label>
+        </div>
+        <label>הערה למנהל
+          <textarea name="note" rows="4" placeholder="לדוגמה: מספר עובדים, סוג שימוש, הערות מיוחדות"></textarea>
+        </label>
+        <button class="portal-button primary full" type="submit">שליחת בקשה לאישור</button>
+        <a href="#login">כבר יש לך משתמש? התחברות</a>
+      </form>
+    </main>
+  </section>
+
+  <section id="adminPortal" class="admin-shell" hidden>
+    <aside class="admin-sidebar">
+      <a class="portal-logo" href="#admin">
+        <span class="portal-logo-mark" aria-hidden="true"></span>
+        <span>
+          <strong>פאנל אדמין</strong>
+          <small>ניהול משתמשים והרשאות</small>
+        </span>
+      </a>
+      <nav>
+        <a class="active" href="#admin">בקשות הצטרפות</a>
+        <a href="#app">מערכת תפעול</a>
+        <button id="logoutBtn" type="button">יציאה</button>
+      </nav>
+    </aside>
+    <main class="admin-main">
+      <header class="admin-topbar">
+        <div>
+          <h1>אישורי משתמשים</h1>
+          <p>משתמשים חדשים נשארים חסומים עד אישור שלך.</p>
+        </div>
+        <button id="seedPendingBtn" class="portal-button ghost" type="button">הוסף בקשת דוגמה</button>
+      </header>
+      <section class="admin-panel">
+        <div class="admin-panel-head">
+          <h2>ממתינים לאישור</h2>
+          <span id="pendingCount">0</span>
+        </div>
+        <div id="pendingUsersList" class="admin-list"></div>
+      </section>
+      <section class="admin-panel">
+        <div class="admin-panel-head">
+          <h2>משתמשים מאושרים</h2>
+          <span id="approvedCount">0</span>
+        </div>
+        <div id="approvedUsersList" class="admin-list compact"></div>
+      </section>
+    </main>
+  </section>
+
+  <div id="appShell" class="app-shell" hidden>
     <aside class="sidebar" aria-label="ניווט ראשי">
       <div class="brand">
         <div class="brand-mark" aria-hidden="true">
@@ -209,6 +400,7 @@
   <script src="assets/vendor/xlsx.full.min.js"></script>
   <script src="js/config.js"></script>
   <script src="js/excel.js"></script>
+  <script src="js/portal.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
