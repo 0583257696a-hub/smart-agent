@@ -31,16 +31,22 @@ const portalState = {
   approvedCount: null
 };
 
-document.addEventListener("DOMContentLoaded", initPortal);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initPortal);
+} else {
+  initPortal();
+}
 
 async function initPortal() {
   cachePortalElements();
   initSupabaseClient();
   if (!portalState.useSupabase) ensureDemoAdmin();
   bindPortalEvents();
-  await restoreSupabaseSession();
   renderPortalRoute();
   window.addEventListener("hashchange", renderPortalRoute);
+  restoreSupabaseSession().then(renderPortalRoute).catch(error => {
+    console.warn("Supabase session restore failed", error);
+  });
 }
 
 function cachePortalElements() {
@@ -65,6 +71,11 @@ function bindPortalEvents() {
   portalState.seedPendingBtn?.addEventListener("click", addDemoPendingUser);
   portalState.pendingUsersList?.addEventListener("click", handleAdminUserAction);
   portalState.approvedUsersList?.addEventListener("click", handleAdminUserAction);
+  document.addEventListener("click", event => {
+    const routeLink = event.target.closest('a[href^="#"]');
+    if (!routeLink) return;
+    window.setTimeout(renderPortalRoute, 0);
+  });
 }
 
 async function renderPortalRoute() {
@@ -384,7 +395,8 @@ async function logoutPortalUser() {
 
 async function restoreSupabaseSession() {
   if (!portalState.useSupabase) return;
-  const { data } = await portalState.supabase.auth.getSession();
+  const { data, error } = await portalState.supabase.auth.getSession();
+  if (error) return;
   const user = data?.session?.user;
   if (!user) return;
   const profile = await fetchCurrentProfile(user.id);
