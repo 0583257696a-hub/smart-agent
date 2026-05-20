@@ -571,7 +571,7 @@ body {
   border-radius: 18px;
   padding: 14px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px) auto auto;
   align-items: center;
   gap: 16px;
   background: #fbfdff;
@@ -594,7 +594,34 @@ body {
 
 .admin-row-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+}
+
+.admin-password-field {
+  display: grid;
+  gap: 6px;
+  color: #536783;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.admin-password-field input {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0 12px;
+  background: #ffffff;
+  color: var(--text);
+  direction: ltr;
+  text-align: left;
+  outline: none;
+}
+
+.admin-password-field input:focus {
+  border-color: #9db8e6;
+  box-shadow: 0 0 0 4px rgba(79, 115, 189, 0.12);
 }
 
 .admin-row-actions .danger {

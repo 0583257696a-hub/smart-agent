@@ -118,10 +118,22 @@ function handleRegister(event) {
   event.preventDefault();
   const form = new FormData(event.currentTarget);
   const email = normalizeEmail(form.get("email"));
+  const password = String(form.get("password") || "");
+  const passwordConfirm = String(form.get("passwordConfirm") || "");
   const users = getPortalUsers();
 
   if (users.some(user => normalizeEmail(user.email) === email)) {
     showPortalMessage("כבר קיימת בקשה או הרשמה עם האימייל הזה", "warning");
+    return;
+  }
+
+  if (password.length < 6) {
+    showPortalMessage("הסיסמה חייבת לכלול לפחות 6 תווים", "warning");
+    return;
+  }
+
+  if (password !== passwordConfirm) {
+    showPortalMessage("אימות הסיסמה אינו תואם", "warning");
     return;
   }
 
@@ -132,7 +144,7 @@ function handleRegister(event) {
     phone: String(form.get("phone") || "").trim(),
     agency: String(form.get("agency") || "").trim(),
     note: String(form.get("note") || "").trim(),
-    password: "123456",
+    password,
     role: "agent",
     status: "pending",
     createdAt: new Date().toISOString()
@@ -155,6 +167,16 @@ function handleAdminUserAction(event) {
   if (button.dataset.userAction === "approve") user.status = "approved";
   if (button.dataset.userAction === "reject") user.status = "rejected";
   if (button.dataset.userAction === "pending") user.status = "pending";
+  if (button.dataset.userAction === "savePassword") {
+    const input = button.closest(".admin-user-row")?.querySelector("[data-password-input]");
+    const password = String(input?.value || "");
+    if (password.length < 6) {
+      showPortalMessage("הסיסמה חייבת לכלול לפחות 6 תווים", "warning");
+      return;
+    }
+    user.password = password;
+    showPortalMessage("הסיסמה עודכנה", "success");
+  }
   setPortalUsers(users);
   renderAdminUsers();
 }
@@ -189,8 +211,15 @@ function userRowTemplate(user, mode) {
       <span>${escapeHtml(user.agency || "ללא סוכנות")} · ${escapeHtml(user.email || "")}</span>
       ${user.note ? `<p>${escapeHtml(user.note)}</p>` : ""}
     </div>
+    <label class="admin-password-field">
+      <span>סיסמה</span>
+      <input data-password-input type="text" value="${escapeAttr(user.password || "")}" autocomplete="off">
+    </label>
     <small>${date}</small>
-    <div class="admin-row-actions">${actions}</div>
+    <div class="admin-row-actions">
+      <button data-user-action="savePassword" data-user-id="${escapeAttr(user.id)}">שמירת סיסמה</button>
+      ${actions}
+    </div>
   </article>`;
 }
 
