@@ -231,18 +231,10 @@
       <nav id="sideNav" class="side-nav"></nav>
 
       <div class="sidebar-footer">
-        <button id="resetDataBtn" class="sidebar-action secondary" type="button">
-          <span class="icon" data-icon="download"></span>
-          טען DATA מקור
-        </button>
         <button id="emailSignatureBtn" class="sidebar-action secondary" type="button">
           <span class="icon" data-icon="edit"></span>
           חתימת מייל
         </button>
-        <div class="storage-note">
-          <strong>שמירה מקומית</strong>
-          <span>כל שינוי נשמר בדפדפן. ייבוא/ייצוא עובדים מול JSON.</span>
-        </div>
       </div>
     </aside>
 
@@ -262,25 +254,7 @@
             <button id="globalSearchBtn" type="button">חיפוש גלובלי</button>
           </div>
 
-          <div class="header-actions">
-            <a class="toolbar-button" href="import-template.xlsx" download="מרכז_תפעול_תבנית_ייבוא_ריקה.xlsx" title="הורדת תבנית Excel ריקה לייבוא">
-              <span class="icon" data-icon="download"></span>
-              Excel לייבוא
-            </a>
-            <label class="toolbar-button">
-              <span class="icon" data-icon="upload"></span>
-              Import
-              <input id="importInput" type="file" accept="application/json,.json,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden />
-            </label>
-            <button id="exportBtn" class="toolbar-button" type="button">
-              <span class="icon" data-icon="download"></span>
-              Export
-            </button>
-            <button id="addRecordBtn" class="toolbar-button primary" type="button">
-              <span class="icon" data-icon="plus"></span>
-              הוספה
-            </button>
-          </div>
+          <input id="importInput" type="file" accept="application/json,.json,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden />
         </div>
 
         <div class="header-row secondary-row">
@@ -304,7 +278,10 @@
             <h2 id="moduleTitle">מיילים תפעוליים</h2>
             <p id="moduleMeta">טוען נתונים...</p>
           </div>
-          <div id="statsStrip" class="stats-strip"></div>
+          <button id="addRecordBtn" class="toolbar-button primary module-add-button" type="button">
+            <span class="icon" data-icon="plus"></span>
+            הוספה
+          </button>
         </div>
 
         <div id="filtersBar" class="filters-bar"></div>

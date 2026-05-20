@@ -70,8 +70,8 @@ async function init() {
 function cacheElements() {
   [
     "sideNav", "mainSearch", "clearSearchBtn", "localSearchBtn", "globalSearchBtn",
-    "importInput", "exportBtn", "addRecordBtn", "resetDataBtn", "tableViewBtn", "cardViewBtn",
-    "moduleTitle", "moduleMeta", "statsStrip", "filtersBar", "results",
+    "importInput", "addRecordBtn", "tableViewBtn", "cardViewBtn",
+    "moduleTitle", "moduleMeta", "filtersBar", "results",
     "recordDialog", "recordForm", "formFields", "modalTitle", "modalSubtitle",
     "templateDialog", "templateTitle", "templateSubject", "templateBody", "closeTemplateBtn",
     "copyTemplateBtn", "sendTemplateDialog", "sendTemplateSubtitle", "closeSendTemplateBtn",
@@ -106,10 +106,8 @@ function bindEvents() {
   on(els.globalSearchBtn, "click", () => setSearchScope("global"));
   on(els.tableViewBtn, "click", () => setViewMode("table"));
   on(els.cardViewBtn, "click", () => setViewMode("cards"));
-  on(els.exportBtn, "click", () => exportAllData());
   on(els.importInput, "change", importData);
   on(els.addRecordBtn, "click", () => openRecordModal(currentModule));
-  on(els.resetDataBtn, "click", resetToSourceData);
   on(els.emailSignatureBtn, "click", openSignatureModal);
   on(els.signatureForm, "submit", saveEmailSignature);
   on(els.recordForm, "submit", saveRecord);
@@ -450,7 +448,6 @@ function render() {
     : `${localRows.length} מתוך ${(DB[currentModule] || []).length} רשומות · ${moduleScopeLabel(currentModule)}`;
 
   renderNavigation();
-  renderStats(localRows.length, total);
   renderFilters();
   renderResults(localRows);
 }
@@ -498,15 +495,6 @@ function switchModule(moduleKey) {
   saveUiState({ scrollY: 0 });
   render();
   window.scrollTo({ top: 0, behavior: "auto" });
-}
-
-function renderStats(localCount, totalCount) {
-  const total = Object.values(DB).reduce((sum, rows) => sum + rows.length, 0);
-  els.statsStrip.innerHTML = [
-    ["בטאב", localCount],
-    ["תוצאות", totalCount],
-    ["סה״כ", total]
-  ].map(([label, value]) => `<div class="stat"><strong>${value}</strong><span>${label}</span></div>`).join("");
 }
 
 function renderFilters() {
