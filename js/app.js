@@ -1,5 +1,6 @@
 const UI_STATE_KEY = "agent_ops_ui_state";
 const EMAIL_SIGNATURE_KEY = "agent_ops_email_signature";
+const PORTAL_SESSION_KEY_FOR_APP = "agent_ops_portal_session";
 const savedUiState = parseStoredJson(UI_STATE_KEY, {});
 
 let DB = {};
@@ -150,8 +151,9 @@ function on(element, eventName, handler, options) {
 async function loadAllData() {
   const dataVersions = parseStoredJson(DATA_VERSION_KEY, {});
   await Promise.all(Object.entries(MODULES).map(async ([key, config]) => {
-    const sourceRows = await fetchSourceRows(config.file);
-    const stored = localStorage.getItem(STORAGE_PREFIX + key);
+    const sourceRows = shouldLoadSourceRows(key) ? await fetchSourceRows(config.file) : [];
+    const storageKey = dataStorageKey(key);
+    const stored = localStorage.getItem(storageKey);
     if (DATA_VERSIONS[key] && dataVersions[key] !== DATA_VERSIONS[key]) {
       DB[key] = normalizeModuleRows(key, sourceRows);
       saveDataToLocalStorage(key);
@@ -247,7 +249,7 @@ function discountPeriodKey(period = "") {
 
 function saveDataToLocalStorage(key = currentModule) {
   try {
-    localStorage.setItem(STORAGE_PREFIX + key, JSON.stringify(DB[key] || []));
+    localStorage.setItem(dataStorageKey(key), JSON.stringify(DB[key] || []));
   } catch (error) {
     console.error("Storage Error:", error);
     if (error.name === "QuotaExceededError" && typeof toast === "function") {
@@ -259,7 +261,7 @@ function saveDataToLocalStorage(key = currentModule) {
 async function resetToSourceData() {
   if (!confirm("לטעון מחדש את כל נתוני המקור מקבצי ה־JSON? שינויים מקומיים שלא יוצאו יוחלפו.")) return;
   await Promise.all(Object.entries(MODULES).map(async ([key, config]) => {
-    DB[key] = normalizeModuleRows(key, await fetchSourceRows(config.file));
+    DB[key] = normalizeModuleRows(key, shouldLoadSourceRows(key) ? await fetchSourceRows(config.file) : []);
     saveDataToLocalStorage(key);
   }));
   query = "";
@@ -309,6 +311,37 @@ function aliasTokens(value = "") {
 
 function searchableText(row) {
   return aliasTokens(flattenSearchValues(row).join(" "));
+}
+
+function dataStorageKey(moduleKey) {
+  if (!isPrivateModule(moduleKey)) return STORAGE_PREFIX + moduleKey;
+  return `${STORAGE_PREFIX}private_${currentTenantKey()}_${moduleKey}`;
+}
+
+function shouldLoadSourceRows(moduleKey) {
+  return !isPrivateModule(moduleKey) || isSuperAdminSession();
+}
+
+function isPrivateModule(moduleKey) {
+  return MODULES[moduleKey]?.scope === "private";
+}
+
+function currentTenantKey() {
+  const session = getPortalSessionForApp();
+  const identity = session?.agency || session?.id || session?.email || "local";
+  return normalizeStorageSegment(identity);
+}
+
+function normalizeStorageSegment(value = "") {
+  return String(value || "local").toLowerCase().replace(/[^a-z0-9א-ת_-]+/g, "_").slice(0, 80) || "local";
+}
+
+function getPortalSessionForApp() {
+  return parseStoredJson(PORTAL_SESSION_KEY_FOR_APP, {});
+}
+
+function isSuperAdminSession() {
+  return getPortalSessionForApp()?.role === "super_admin";
 }
 
 function getFieldValue(row = {}, field = "") {
@@ -415,7 +448,7 @@ function render() {
   els.moduleTitle.textContent = searchScope === "global" && query.trim() ? "תוצאות חיפוש גלובלי" : config.title;
   els.moduleMeta.textContent = searchScope === "global" && query.trim()
     ? `${total} תוצאות מכל מקורות הנתונים`
-    : `${localRows.length} מתוך ${(DB[currentModule] || []).length} רשומות`;
+    : `${localRows.length} מתוך ${(DB[currentModule] || []).length} רשומות · ${moduleScopeLabel(currentModule)}`;
 
   renderNavigation();
   renderStats(localRows.length, total);
@@ -446,9 +479,14 @@ function navButton(key, config) {
     <button class="nav-pill ${key === currentModule ? "active" : ""}" type="button" data-module="${key}">
       <span class="icon">${ICONS[config.icon] || ICONS.file}</span>
       <span>${escapeHtml(config.label)}</span>
+      <small class="scope-chip ${isPrivateModule(key) ? "private" : "global"}">${isPrivateModule(key) ? "פרטי" : "גלובלי"}</small>
       <b>${(DB[key] || []).length}</b>
     </button>
   `;
+}
+
+function moduleScopeLabel(moduleKey) {
+  return isPrivateModule(moduleKey) ? "מידע פרטי למשתמש/סוכנות" : "מידע גלובלי לכל המשתמשים";
 }
 
 function switchModule(moduleKey) {

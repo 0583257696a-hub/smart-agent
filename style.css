@@ -844,6 +844,35 @@ label {
   text-align: center;
 }
 
+.scope-chip {
+  margin-right: auto;
+  min-width: 48px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid #d8e4f4;
+  color: #667792;
+  background: #f7faff;
+  font-size: 10px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.scope-chip.private {
+  color: #8f5a22;
+  background: #fff7e8;
+  border-color: #f3d9ad;
+}
+
+.scope-chip.global {
+  color: #2f6f7a;
+  background: #eafaf8;
+  border-color: #c9ebe7;
+}
+
+.nav-pill .scope-chip + b {
+  margin-right: 0;
+}
+
 .sidebar-footer {
   margin-top: auto;
   display: grid;

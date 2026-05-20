@@ -459,7 +459,8 @@ function setPortalSession(user) {
     email: user.email,
     role: user.role,
     status: user.status,
-    fullName: user.fullName
+    fullName: user.fullName,
+    agency: user.agency
   }));
 }
 

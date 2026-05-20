@@ -292,6 +292,27 @@ const MODULES = {
 };
 
 const SEARCH_ORDER = Object.keys(MODULES);
+const MODULE_SCOPE = {
+  operational_emails: "global",
+  email_templates: "global",
+  management_fees: "global",
+  insurance_discounts: "global",
+  service_centers: "global",
+  institution_codes: "global",
+  bank_numbers: "global",
+  mortgage_release: "global",
+  snifim: "global",
+  companies: "global",
+  links: "private",
+  passwords: "private",
+  supervisors: "private",
+  employers: "private",
+  deposit_accounts: "private",
+  agent_numbers: "private"
+};
+Object.entries(MODULE_SCOPE).forEach(([key, scope]) => {
+  if (MODULES[key]) MODULES[key].scope = scope;
+});
 const FEE_COMPANY_ORDER = ["הפניקס", "מגדל", "הראל", "כלל", "מיטב", "מור", "אלטשולר", "מנורה", "אנליסט", "הכשרה", "ילין לפידות"];
 const PRODUCT_ORDER = ["פנסיה", "קרנות פנסיה", "קרן השתלמות", "השתלמות", "גמל והשתלמות", "קופת גמל", "גמל", "גמל להשקעה", "פוליסה פיננסית", "BEST INVEST", "חיסכון לפרישה", "מגוון", "IRA", "תיקון 190", "ריסק", "בריאות"];
 const QUICK_SEARCHES = ["הפניקס", "כלל", "מגדל", "הראל", "מיטב", "מור", "ניוד", "פדיון", "דמי ניהול", "הפקדות"];
@@ -423,4 +444,3 @@ const ICONS = {
   cards: '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/></svg>',
   print: '<svg viewBox="0 0 24 24"><path d="M7 8V3h10v5"/><rect x="5" y="14" width="14" height="7"/><path d="M5 18H3v-7h18v7h-2"/></svg>'
 };
-
