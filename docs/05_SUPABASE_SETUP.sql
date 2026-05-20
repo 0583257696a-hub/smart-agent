@@ -12,9 +12,13 @@ create table if not exists public.profiles (
     check (role in ('super_admin', 'agency_admin', 'agent')),
   status text not null default 'pending'
     check (status in ('pending', 'approved', 'rejected')),
+  permissions jsonb not null default '["operational_emails","email_templates","management_fees","insurance_discounts","service_centers","institution_codes","bank_numbers"]'::jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+alter table public.profiles
+add column if not exists permissions jsonb not null default '["operational_emails","email_templates","management_fees","insurance_discounts","service_centers","institution_codes","bank_numbers"]'::jsonb;
 
 alter table public.profiles enable row level security;
 
@@ -49,7 +53,8 @@ begin
     agency,
     note,
     role,
-    status
+    status,
+    permissions
   )
   values (
     new.id,
@@ -59,7 +64,8 @@ begin
     coalesce(new.raw_user_meta_data ->> 'agency', ''),
     coalesce(new.raw_user_meta_data ->> 'note', ''),
     'agent',
-    'pending'
+    'pending',
+    '["operational_emails","email_templates","management_fees","insurance_discounts","service_centers","institution_codes","bank_numbers"]'::jsonb
   )
   on conflict (id) do update
   set

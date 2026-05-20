@@ -1,6 +1,22 @@
 const PORTAL_SESSION_KEY = "agent_ops_portal_session";
 const PORTAL_USERS_KEY = "agent_ops_portal_users";
 
+const ADMIN_MODULE_PERMISSIONS = [
+  ["operational_emails", "מיילים"],
+  ["email_templates", "תבניות"],
+  ["passwords", "סיסמאות"],
+  ["supervisors", "מפקחים"],
+  ["employers", "מעסיקים"],
+  ["management_fees", "דמי ניהול"],
+  ["insurance_discounts", "הנחות ביטוח"],
+  ["deposit_accounts", "חשבונות"],
+  ["service_centers", "מוקדים"],
+  ["institution_codes", "קודי מוסד"],
+  ["links", "קישורים"],
+  ["agent_numbers", "מספרי סוכן"],
+  ["bank_numbers", "בנקים"]
+];
+
 const DEMO_ADMIN = {
   id: "admin",
   fullName: "מנהל מערכת",
@@ -9,12 +25,15 @@ const DEMO_ADMIN = {
   agency: "ABD finance",
   role: "super_admin",
   status: "approved",
+  permissions: ["*"],
   createdAt: new Date().toISOString()
 };
 
 const portalState = {
   supabase: null,
   useSupabase: false,
+  adminUsers: [],
+  adminSearch: "",
   publicPortal: null,
   landingView: null,
   loginView: null,
@@ -25,10 +44,12 @@ const portalState = {
   registerForm: null,
   logoutBtn: null,
   seedPendingBtn: null,
-  pendingUsersList: null,
-  approvedUsersList: null,
+  adminUsersList: null,
+  adminUserSearch: null,
   pendingCount: null,
-  approvedCount: null
+  approvedCount: null,
+  rejectedCount: null,
+  totalUsersCount: null
 };
 
 if (document.readyState === "loading") {
@@ -51,8 +72,8 @@ async function initPortal() {
 function cachePortalElements() {
   [
     "publicPortal", "landingView", "loginView", "registerView", "adminPortal", "appShell",
-    "loginForm", "registerForm", "logoutBtn", "seedPendingBtn", "pendingUsersList",
-    "approvedUsersList", "pendingCount", "approvedCount"
+    "loginForm", "registerForm", "logoutBtn", "seedPendingBtn", "adminUsersList",
+    "adminUserSearch", "pendingCount", "approvedCount", "rejectedCount", "totalUsersCount"
   ].forEach(id => portalState[id] = document.getElementById(id));
 }
 
@@ -78,7 +99,6 @@ function loadSupabaseSdk() {
       existing.addEventListener("error", () => resolve(), { once: true });
       return;
     }
-
     const script = document.createElement("script");
     script.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
     script.async = true;
@@ -95,8 +115,11 @@ function bindPortalEvents() {
   portalState.registerForm?.addEventListener("submit", handleRegister);
   portalState.logoutBtn?.addEventListener("click", logoutPortalUser);
   portalState.seedPendingBtn?.addEventListener("click", addDemoPendingUser);
-  portalState.pendingUsersList?.addEventListener("click", handleAdminUserAction);
-  portalState.approvedUsersList?.addEventListener("click", handleAdminUserAction);
+  portalState.adminUsersList?.addEventListener("click", handleAdminUserAction);
+  portalState.adminUserSearch?.addEventListener("input", event => {
+    portalState.adminSearch = event.target.value || "";
+    renderAdminLists(portalState.adminUsers);
+  });
   document.addEventListener("click", event => {
     const routeLink = event.target.closest('a[href^="#"]');
     if (!routeLink) return;
@@ -114,7 +137,6 @@ async function renderPortalRoute() {
     window.location.hash = "#login";
     return;
   }
-
   if (isAdminRoute && !isAdminSession(session)) {
     window.location.hash = "#login";
     return;
@@ -123,7 +145,6 @@ async function renderPortalRoute() {
   setHidden(portalState.publicPortal, isAdminRoute || isAppRoute);
   setHidden(portalState.adminPortal, !isAdminRoute);
   setHidden(portalState.appShell, !isAppRoute);
-
   setHidden(portalState.landingView, !["landing", "features", "security", "workflow", ""].includes(route));
   setHidden(portalState.loginView, route !== "login");
   setHidden(portalState.registerView, route !== "register");
@@ -217,14 +238,7 @@ async function registerWithSupabase(formElement, form, email, password) {
   const { error } = await portalState.supabase.auth.signUp({
     email,
     password,
-    options: {
-      data: {
-        full_name: fullName,
-        phone,
-        agency,
-        note
-      }
-    }
+    options: { data: { full_name: fullName, phone, agency, note } }
   });
 
   if (error) {
@@ -260,6 +274,7 @@ function buildLocalPendingUser(form, email, password) {
     password,
     role: "agent",
     status: "pending",
+    permissions: defaultPermissionsForRole("agent"),
     createdAt: new Date().toISOString()
   };
 }
@@ -268,50 +283,69 @@ async function handleAdminUserAction(event) {
   const button = event.target.closest("[data-user-action]");
   if (!button) return;
 
-  if (portalState.useSupabase) {
-    await handleSupabaseAdminAction(button);
+  if (button.dataset.userAction === "saveUser") {
+    await saveAdminUser(button.closest(".admin-user-row"));
     return;
   }
 
-  const users = getPortalUsers();
-  const user = users.find(item => item.id === button.dataset.userId);
-  if (!user || user.role === "super_admin") return;
-
-  if (button.dataset.userAction === "approve") user.status = "approved";
-  if (button.dataset.userAction === "reject") user.status = "rejected";
-  if (button.dataset.userAction === "pending") user.status = "pending";
-  if (button.dataset.userAction === "savePassword") {
-    const input = button.closest(".admin-user-row")?.querySelector("[data-password-input]");
-    const password = String(input?.value || "");
-    if (password.length < 6) {
-      showPortalMessage("הסיסמה חייבת לכלול לפחות 6 תווים", "warning");
-      return;
-    }
-    user.password = password;
-    showPortalMessage("הסיסמה עודכנה", "success");
-  }
-
-  setPortalUsers(users);
-  await renderAdminUsers();
+  await quickUpdateUser(button);
 }
 
-async function handleSupabaseAdminAction(button) {
+async function quickUpdateUser(button) {
   const userId = button.dataset.userId;
-  const action = button.dataset.userAction;
-  if (!userId || !["approve", "reject", "pending"].includes(action)) return;
+  if (!userId) return;
+  const row = button.closest(".admin-user-row");
+  const status = button.dataset.userAction === "approve"
+    ? "approved"
+    : button.dataset.userAction === "reject"
+      ? "rejected"
+      : button.dataset.userAction === "pending"
+        ? "pending"
+        : null;
+  if (!status) return;
+  row.querySelector("[data-user-status]").value = status;
+  await saveAdminUser(row);
+}
 
-  const status = action === "approve" ? "approved" : action === "reject" ? "rejected" : "pending";
-  const { error } = await portalState.supabase
-    .from("profiles")
-    .update({ status, updated_at: new Date().toISOString() })
-    .eq("id", userId);
+async function saveAdminUser(row) {
+  if (!row) return;
+  const userId = row.dataset.userId;
+  const role = row.querySelector("[data-user-role]")?.value || "agent";
+  const status = row.querySelector("[data-user-status]")?.value || "pending";
+  const permissions = role === "super_admin"
+    ? ["*"]
+    : [...row.querySelectorAll("[data-permission]:checked")].map(input => input.value);
 
-  if (error) {
-    showPortalMessage("אין הרשאה לעדכן משתמש. בדוק שהוגדרת כ-super_admin ב-Supabase", "error");
-    return;
+  if (portalState.useSupabase) {
+    const { error } = await portalState.supabase
+      .from("profiles")
+      .update({ role, status, permissions, updated_at: new Date().toISOString() })
+      .eq("id", userId);
+
+    if (error) {
+      showPortalMessage("אין הרשאה לעדכן משתמש. בדוק שהוגדרת כ-super_admin ב-Supabase", "error");
+      return;
+    }
+  } else {
+    const users = getPortalUsers();
+    const user = users.find(item => item.id === userId);
+    if (!user || user.role === "super_admin") return;
+    user.role = role;
+    user.status = status;
+    user.permissions = permissions;
+    const passwordInput = row.querySelector("[data-password-input]");
+    if (passwordInput) {
+      const password = String(passwordInput.value || "");
+      if (password.length < 6) {
+        showPortalMessage("הסיסמה חייבת לכלול לפחות 6 תווים", "warning");
+        return;
+      }
+      user.password = password;
+    }
+    setPortalUsers(users);
   }
 
-  showPortalMessage("סטטוס המשתמש עודכן", "success");
+  showPortalMessage("הרשאות המשתמש נשמרו", "success");
   await renderAdminUsers();
 }
 
@@ -321,47 +355,58 @@ async function renderAdminUsers() {
     return;
   }
 
-  const users = getPortalUsers().filter(user => user.role !== "super_admin");
-  renderAdminLists(users);
+  portalState.adminUsers = getPortalUsers().filter(user => user.role !== "super_admin");
+  renderAdminLists(portalState.adminUsers);
 }
 
 async function renderSupabaseAdminUsers() {
-  portalState.pendingUsersList.innerHTML = `<div class="empty-admin-state">טוען משתמשים...</div>`;
-
+  portalState.adminUsersList.innerHTML = `<div class="empty-admin-state">טוען משתמשים...</div>`;
   const { data, error } = await portalState.supabase
     .from("profiles")
-    .select("id, full_name, email, phone, agency, note, role, status, created_at")
+    .select("id, full_name, email, phone, agency, note, role, status, permissions, created_at")
     .neq("role", "super_admin")
     .order("created_at", { ascending: false });
 
   if (error) {
-    portalState.pendingUsersList.innerHTML = `<div class="empty-admin-state">לא ניתן לטעון משתמשים. צריך להריץ SQL הרשאות ב-Supabase.</div>`;
-    portalState.approvedUsersList.innerHTML = "";
+    portalState.adminUsersList.innerHTML = `<div class="empty-admin-state">לא ניתן לטעון משתמשים. צריך להריץ SQL הרשאות ב-Supabase.</div>`;
     return;
   }
 
-  renderAdminLists((data || []).map(profileToUser));
+  portalState.adminUsers = (data || []).map(profileToUser);
+  renderAdminLists(portalState.adminUsers);
 }
 
 function renderAdminLists(users) {
-  const pending = users.filter(user => user.status === "pending");
-  const approved = users.filter(user => user.status === "approved");
+  const filtered = filterAdminUsers(users);
+  const counts = {
+    pending: users.filter(user => user.status === "pending").length,
+    approved: users.filter(user => user.status === "approved").length,
+    rejected: users.filter(user => user.status === "rejected").length,
+    total: users.length
+  };
 
-  if (portalState.pendingCount) portalState.pendingCount.textContent = pending.length;
-  if (portalState.approvedCount) portalState.approvedCount.textContent = approved.length;
+  if (portalState.pendingCount) portalState.pendingCount.textContent = counts.pending;
+  if (portalState.approvedCount) portalState.approvedCount.textContent = counts.approved;
+  if (portalState.rejectedCount) portalState.rejectedCount.textContent = counts.rejected;
+  if (portalState.totalUsersCount) portalState.totalUsersCount.textContent = counts.total;
 
-  portalState.pendingUsersList.innerHTML = pending.length
-    ? pending.map(user => userRowTemplate(user, "pending")).join("")
-    : `<div class="empty-admin-state">אין כרגע בקשות שממתינות לאישור</div>`;
-
-  portalState.approvedUsersList.innerHTML = approved.length
-    ? approved.map(user => userRowTemplate(user, "approved")).join("")
-    : `<div class="empty-admin-state">אין עדיין משתמשים מאושרים</div>`;
+  portalState.adminUsersList.innerHTML = filtered.length
+    ? filtered.map(userRowTemplate).join("")
+    : `<div class="empty-admin-state">לא נמצאו משתמשים תואמים</div>`;
 }
 
-function userRowTemplate(user, mode) {
+function filterAdminUsers(users) {
+  const term = normalizeText(portalState.adminSearch);
+  if (!term) return users;
+  return users.filter(user => normalizeText([user.fullName, user.email, user.agency, user.role, user.status].join(" ")).includes(term));
+}
+
+function userRowTemplate(user) {
   const date = new Date(user.createdAt || Date.now()).toLocaleDateString("he-IL");
-  const actions = mode === "pending"
+  const role = user.role || "agent";
+  const status = user.status || "pending";
+  const permissions = normalizePermissions(user.permissions, role);
+  const actions = status === "pending"
     ? `<button data-user-action="approve" data-user-id="${escapeAttr(user.id)}">אישור</button>
        <button class="danger" data-user-action="reject" data-user-id="${escapeAttr(user.id)}">דחייה</button>`
     : `<button data-user-action="pending" data-user-id="${escapeAttr(user.id)}">החזר לממתין</button>`;
@@ -371,23 +416,75 @@ function userRowTemplate(user, mode) {
         <span>סיסמה</span>
         <input data-password-input type="text" value="${escapeAttr(user.password || "")}" autocomplete="off">
       </label>`;
-  const passwordAction = portalState.useSupabase
-    ? ""
-    : `<button data-user-action="savePassword" data-user-id="${escapeAttr(user.id)}">שמירת סיסמה</button>`;
 
-  return `<article class="admin-user-row">
-    <div>
+  return `<article class="admin-user-row permission-row" data-user-id="${escapeAttr(user.id)}">
+    <div class="admin-user-main">
       <strong>${escapeHtml(user.fullName || "ללא שם")}</strong>
       <span>${escapeHtml(user.agency || "ללא סוכנות")} · ${escapeHtml(user.email || "")}</span>
       ${user.note ? `<p>${escapeHtml(user.note)}</p>` : ""}
+      <small>נוצר: ${date}</small>
     </div>
-    ${passwordCell}
-    <small>${date}</small>
+    <div class="admin-controls">
+      <label>תפקיד
+        <select data-user-role>
+          ${roleOption("agent", "משתמש", role)}
+          ${roleOption("agency_admin", "מנהל סוכנות", role)}
+          ${roleOption("super_admin", "מנהל מערכת", role)}
+        </select>
+      </label>
+      <label>סטטוס
+        <select data-user-status>
+          ${statusOption("pending", "ממתין", status)}
+          ${statusOption("approved", "מאושר", status)}
+          ${statusOption("rejected", "חסום", status)}
+        </select>
+      </label>
+      ${passwordCell}
+    </div>
+    <div class="permission-matrix">
+      ${ADMIN_MODULE_PERMISSIONS.map(([key, label]) => permissionCheckbox(key, label, permissions, role)).join("")}
+    </div>
     <div class="admin-row-actions">
-      ${passwordAction}
+      <button class="primary-action" data-user-action="saveUser" data-user-id="${escapeAttr(user.id)}">שמירת הרשאות</button>
       ${actions}
     </div>
   </article>`;
+}
+
+function roleOption(value, label, selected) {
+  return `<option value="${value}" ${value === selected ? "selected" : ""}>${label}</option>`;
+}
+
+function statusOption(value, label, selected) {
+  return `<option value="${value}" ${value === selected ? "selected" : ""}>${label}</option>`;
+}
+
+function permissionCheckbox(key, label, permissions, role) {
+  const checked = role === "super_admin" || permissions.includes(key);
+  const disabled = role === "super_admin" ? "disabled" : "";
+  return `<label class="permission-chip">
+    <input data-permission type="checkbox" value="${escapeAttr(key)}" ${checked ? "checked" : ""} ${disabled}>
+    <span>${escapeHtml(label)}</span>
+  </label>`;
+}
+
+function defaultPermissionsForRole(role = "agent") {
+  if (role === "super_admin") return ["*"];
+  if (role === "agency_admin") return ADMIN_MODULE_PERMISSIONS.map(([key]) => key);
+  return ["operational_emails", "email_templates", "management_fees", "insurance_discounts", "service_centers", "institution_codes", "bank_numbers"];
+}
+
+function normalizePermissions(value, role = "agent") {
+  if (Array.isArray(value) && value.length) return value;
+  if (typeof value === "string" && value.trim()) {
+    try {
+      const parsed = JSON.parse(value);
+      if (Array.isArray(parsed)) return parsed;
+    } catch {
+      return value.split(",").map(item => item.trim()).filter(Boolean);
+    }
+  }
+  return defaultPermissionsForRole(role);
 }
 
 function addDemoPendingUser() {
@@ -407,6 +504,7 @@ function addDemoPendingUser() {
     password: "123456",
     role: "agent",
     status: "pending",
+    permissions: defaultPermissionsForRole("agent"),
     createdAt: new Date().toISOString()
   });
   setPortalUsers(users);
@@ -432,7 +530,7 @@ async function restoreSupabaseSession() {
 async function fetchCurrentProfile(userId) {
   const { data, error } = await portalState.supabase
     .from("profiles")
-    .select("id, full_name, email, phone, agency, note, role, status, created_at")
+    .select("id, full_name, email, phone, agency, note, role, status, permissions, created_at")
     .eq("id", userId)
     .maybeSingle();
   if (error || !data) return null;
@@ -449,6 +547,7 @@ function profileToUser(profile = {}) {
     note: profile.note || "",
     role: profile.role || "agent",
     status: profile.status || "pending",
+    permissions: normalizePermissions(profile.permissions, profile.role || "agent"),
     createdAt: profile.created_at || new Date().toISOString()
   };
 }
@@ -460,7 +559,8 @@ function setPortalSession(user) {
     role: user.role,
     status: user.status,
     fullName: user.fullName,
-    agency: user.agency
+    agency: user.agency,
+    permissions: normalizePermissions(user.permissions, user.role)
   }));
 }
 
@@ -504,6 +604,10 @@ function isAdminSession(session) {
 
 function normalizeEmail(value) {
   return String(value || "").trim().toLowerCase();
+}
+
+function normalizeText(value = "") {
+  return String(value || "").toLowerCase().trim();
 }
 
 function setHidden(element, hidden) {

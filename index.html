@@ -194,24 +194,38 @@
     <main class="admin-main">
       <header class="admin-topbar">
         <div>
-          <h1>אישורי משתמשים</h1>
-          <p>משתמשים חדשים נשארים חסומים עד אישור שלך.</p>
+          <h1>ניהול משתמשים והרשאות</h1>
+          <p>אישור משתמשים, קביעת תפקידים ושליטה בגישה למודולים.</p>
         </div>
         <button id="seedPendingBtn" class="portal-button ghost" type="button">הוסף בקשת דוגמה</button>
       </header>
-      <section class="admin-panel">
-        <div class="admin-panel-head">
-          <h2>ממתינים לאישור</h2>
-          <span id="pendingCount">0</span>
-        </div>
-        <div id="pendingUsersList" class="admin-list"></div>
+      <section class="admin-summary-grid">
+        <article>
+          <span>ממתינים</span>
+          <strong id="pendingCount">0</strong>
+        </article>
+        <article>
+          <span>מאושרים</span>
+          <strong id="approvedCount">0</strong>
+        </article>
+        <article>
+          <span>חסומים</span>
+          <strong id="rejectedCount">0</strong>
+        </article>
+        <article>
+          <span>סה״כ משתמשים</span>
+          <strong id="totalUsersCount">0</strong>
+        </article>
       </section>
       <section class="admin-panel">
         <div class="admin-panel-head">
-          <h2>משתמשים מאושרים</h2>
-          <span id="approvedCount">0</span>
+          <div>
+            <h2>משתמשים והרשאות</h2>
+            <p>בחר תפקיד, סטטוס והרשאות לכל משתמש.</p>
+          </div>
+          <input id="adminUserSearch" class="admin-search" type="search" placeholder="חיפוש משתמש / אימייל / סוכנות...">
         </div>
-        <div id="approvedUsersList" class="admin-list compact"></div>
+        <div id="adminUsersList" class="admin-list"></div>
       </section>
     </main>
   </section>
