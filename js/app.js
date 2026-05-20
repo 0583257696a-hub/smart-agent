@@ -1,4 +1,5 @@
 const UI_STATE_KEY = "agent_ops_ui_state";
+const EMAIL_SIGNATURE_KEY = "agent_ops_email_signature";
 const savedUiState = parseStoredJson(UI_STATE_KEY, {});
 
 let DB = {};
@@ -75,7 +76,8 @@ function cacheElements() {
     "copyTemplateBtn", "sendTemplateDialog", "sendTemplateSubtitle", "closeSendTemplateBtn",
     "sendEmailSearch", "clearSendEmailSearchBtn", "sendEmailResults", "selectedSendEmail",
     "sendTemplateMailBtn", "toast", "snifimDialog", "snifimTitle", "snifimSubtitle", 
-    "closeSnifimBtn", "snifimSearch", "clearSnifimSearchBtn", "snifimResults"
+    "closeSnifimBtn", "snifimSearch", "clearSnifimSearchBtn", "snifimResults",
+    "emailSignatureBtn", "signatureDialog", "signatureForm", "emailSignatureInput"
   ].forEach(id => els[id] = document.getElementById(id));
 }
 
@@ -107,6 +109,8 @@ function bindEvents() {
   on(els.importInput, "change", importData);
   on(els.addRecordBtn, "click", () => openRecordModal(currentModule));
   on(els.resetDataBtn, "click", resetToSourceData);
+  on(els.emailSignatureBtn, "click", openSignatureModal);
+  on(els.signatureForm, "submit", saveEmailSignature);
   on(els.recordForm, "submit", saveRecord);
   on(els.recordForm, "keydown", handleRecordFormKeydown);
   on(els.closeTemplateBtn, "click", () => els.templateDialog.close());
@@ -1013,9 +1017,34 @@ function sendSelectedTemplateEmail() {
   const targetEmails = getSelectedSendEmails();
   if (!targetEmails.length || !sendTemplate) return;
   const subject = encodeURIComponent(addRtlMarks(decodeEscapedNewlines(sendTemplate.subject || "")));
-  const body = encodeURIComponent(formatMailtoRtlPlainText(decodeEscapedNewlines(sendTemplate.body || "")));
+  const body = encodeURIComponent(formatMailtoRtlPlainText(buildEmailBodyWithSignature(sendTemplate.body || "")));
   window.location.href = `mailto:${targetEmails.map(encodeURIComponent).join(";")}?subject=${subject}&body=${body}`;
   targetEmails.forEach(rememberRecentTemplateEmail);
+}
+
+function buildEmailBodyWithSignature(templateBody = "") {
+  const body = decodeEscapedNewlines(templateBody).trimEnd();
+  const signature = getEmailSignature().trim();
+  if (!signature) return body;
+  return `${body}\n\n${signature}`;
+}
+
+function openSignatureModal() {
+  if (!els.signatureDialog || !els.emailSignatureInput) return;
+  els.emailSignatureInput.value = getEmailSignature();
+  els.signatureDialog.showModal();
+  window.setTimeout(() => els.emailSignatureInput.focus(), 60);
+}
+
+function saveEmailSignature(event) {
+  event.preventDefault();
+  localStorage.setItem(EMAIL_SIGNATURE_KEY, els.emailSignatureInput?.value || "");
+  els.signatureDialog.close();
+  toast("חתימת המייל נשמרה");
+}
+
+function getEmailSignature() {
+  return localStorage.getItem(EMAIL_SIGNATURE_KEY) || "";
 }
 
 function addRtlMarks(value = "") {

@@ -229,6 +229,10 @@
           <span class="icon" data-icon="download"></span>
           טען DATA מקור
         </button>
+        <button id="emailSignatureBtn" class="sidebar-action secondary" type="button">
+          <span class="icon" data-icon="edit"></span>
+          חתימת מייל
+        </button>
         <div class="storage-note">
           <strong>שמירה מקומית</strong>
           <span>כל שינוי נשמר בדפדפן. ייבוא/ייצוא עובדים מול JSON.</span>
@@ -394,6 +398,28 @@
       </div>
       <div id="snifimResults" class="send-results" style="max-height: 400px; overflow-y: auto; padding: 10px;"></div>
     </div>
+  </dialog>
+
+  <dialog id="signatureDialog" class="modal">
+    <form id="signatureForm" method="dialog" class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3>חתימת מייל</h3>
+          <p>החתימה תצורף אוטומטית לסוף כל תבנית שנשלחת דרך המערכת.</p>
+        </div>
+        <button class="icon-button" value="cancel" aria-label="סגירה" type="submit">
+          <span class="icon" data-icon="x"></span>
+        </button>
+      </div>
+      <label class="signature-field">
+        <span>טקסט חתימה</span>
+        <textarea id="emailSignatureInput" rows="8" placeholder="בברכה,&#10;שם מלא&#10;סוכנות / תפקיד&#10;טלפון"></textarea>
+      </label>
+      <div class="modal-actions">
+        <button class="toolbar-button" value="cancel" type="submit">ביטול</button>
+        <button id="saveSignatureBtn" class="toolbar-button primary" value="default" type="submit">שמירה</button>
+      </div>
+    </form>
   </dialog>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
