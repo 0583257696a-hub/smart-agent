@@ -314,12 +314,11 @@ function searchableText(row) {
 }
 
 function dataStorageKey(moduleKey) {
-  if (!isPrivateModule(moduleKey)) return STORAGE_PREFIX + moduleKey;
-  return `${STORAGE_PREFIX}private_${currentTenantKey()}_${moduleKey}`;
+  return STORAGE_PREFIX + moduleKey;
 }
 
 function shouldLoadSourceRows(moduleKey) {
-  return !isPrivateModule(moduleKey) || isSuperAdminSession();
+  return true;
 }
 
 function isPrivateModule(moduleKey) {

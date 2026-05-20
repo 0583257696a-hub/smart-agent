@@ -307,7 +307,7 @@ const MODULE_SCOPE = {
   passwords: "private",
   supervisors: "private",
   employers: "private",
-  deposit_accounts: "private",
+  deposit_accounts: "global",
   agent_numbers: "private"
 };
 Object.entries(MODULE_SCOPE).forEach(([key, scope]) => {
