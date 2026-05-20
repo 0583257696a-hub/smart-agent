@@ -1,0 +1,674 @@
+[
+  {
+    "company": "מור",
+    "category": "הצטרפויות",
+    "action": "הצטרפויות חדשות ותיקונים",
+    "email": "hiztarfut.gemel@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "הפקדות",
+    "action": "אסמכתאות, פיצול, הקמה/שינוי הו״ק",
+    "email": "hafkadot@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "תפעול",
+    "action": "מוטבים, דמי ניהול, ייפוי כח",
+    "email": "tiful@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "ניודים",
+    "action": "השלמת חוסרים לבקשות ניוד",
+    "email": "niyud.reject@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "שינוי מסלול",
+    "action": "ביצוע שינוי מסלול בקופה קיימת",
+    "email": "maslul.gemel@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "פדיונות",
+    "action": "משיכת כספים, פיצויים, פק״ש, תיקון 190",
+    "email": "pidion.gemel@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "הלוואות",
+    "action": "שאלון זכאות ומסמכי הלוואה",
+    "email": "halvaot@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "מעסיקים",
+    "action": "חובות מעסיקים ודיווחי מעסיקים",
+    "email": "hovot.masikim@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "מעסיקים",
+    "action": "פניות מתפעלים למעסיקים וטפסי נש״מ",
+    "email": "masikim@more.co.il",
+    "notes": "",
+    "source": "הודעת משתמש"
+  },
+  {
+    "company": "מור",
+    "category": "דסק סוכנים",
+    "action": "שירות לסוכן",
+    "email": "agents@more.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "טפסים",
+    "action": "קופות חדשות, הצטרפות, ניודים, מסלולים, מוטבים",
+    "email": "Tfasim@altshul.co.il",
+    "notes": "טפסים בלבד",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "משיכות",
+    "action": "משיכות ותיקוני ריג׳קטים",
+    "email": "Meshihotg@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "ריג׳קטים",
+    "action": "תיקוני ריג׳קטים הצטרפות/העברה/מוטבים",
+    "email": "Reject@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "גביה",
+    "action": "העברות בנקאיות, אסמכתאות, רשימות פיצול",
+    "email": "Gvia@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "שימור",
+    "action": "ביטול העברה החוצה",
+    "email": "Ashimurg@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "שימור",
+    "action": "ביטול משיכה",
+    "email": "Shimurmeshiha@altshul.co.il",
+    "notes": "עד יומיים לפני תאריך צפוי למשיכה",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "פנסיה",
+    "action": "אסמכתאות ורשימות פיצול עבור פנסיה",
+    "email": "Depositpension@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "הוראות קבע",
+    "action": "טפסי הוראות קבע ותיקוני ריג׳קט",
+    "email": "Oraatkeva@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "תביעות",
+    "action": "תביעות פנסיה",
+    "email": "Sherut-tviot@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "דמי ניהול",
+    "action": "בקשות להטבה בדמי ניהול",
+    "email": "Dminihol@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "פנסיה",
+    "action": "משיכות פנסיה ותיקוני ריג׳קטים",
+    "email": "MeshichotPension@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "הלוואות",
+    "action": "בקשות הלוואה, מסמכי הלוואה, הו״ק, פרעונות",
+    "email": "Hlagent@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "פנסיה",
+    "action": "הוראות קבע פנסיה",
+    "email": "PensionKeva@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "עמלות",
+    "action": "חשבונית מס קבלה",
+    "email": "asinvoice@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "אלטשולר",
+    "category": "כללי",
+    "action": "בירורים מקצועיים",
+    "email": "Agents@altshul.co.il",
+    "notes": "",
+    "source": "טבלת מיילים ייעודית.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "חיסכון פיננסי",
+    "action": "הצטרפות/הפקה חדשה",
+    "email": "klithatz@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "חיסכון פיננסי",
+    "action": "שינויים",
+    "email": "klithatz@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "חיסכון פיננסי",
+    "action": "פדיון/ביטולים",
+    "email": "TFSaving@Clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "גמל והשתלמות",
+    "action": "הצטרפות",
+    "email": "ltstarfutleumi@clal-ins.co.il",
+    "notes": "כולל תיקון 190",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "גמל והשתלמות",
+    "action": "ניוד",
+    "email": "niyudgemelincome@clalins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "גמל והשתלמות",
+    "action": "ניוד בין מסלולים",
+    "email": "KlitaGemNiBMas@clalins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "גמל והשתלמות",
+    "action": "בקשות לפיזור כספים",
+    "email": "pizurim@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "גמל והשתלמות",
+    "action": "פדיון",
+    "email": "FaxPidyonGemClal@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "גמל והשתלמות",
+    "action": "תקנות תשלומים",
+    "email": "takanotgemel@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "גמל והשתלמות",
+    "action": "דמי ניהול",
+    "email": "eidcondmeyshotef@clalins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "פנסיה",
+    "action": "הצטרפות/פדיון/שינויים",
+    "email": "yipuyyashir@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "פנסיה",
+    "action": "ניוד",
+    "email": "NiyudNichPensia@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "פנסיה",
+    "action": "פיזור כספים",
+    "email": "pizurimpensia@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "מנהלים/פרט",
+    "action": "מסמכים תפעוליים",
+    "email": "claldocs@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "בריאות",
+    "action": "הצעות חדשות",
+    "email": "HatzBriMefk@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "כלל",
+    "category": "בריאות",
+    "action": "תביעות בריאות",
+    "email": "gviabitbri@clal-ins.co.il",
+    "notes": "",
+    "source": "מיילים חשובים כלל 2026.pdf"
+  },
+  {
+    "company": "מגדל",
+    "category": "הפקות",
+    "action": "הפקות כל המוצרים / השלמת חוסרים",
+    "email": "migdal_hafakot@migdal.co.il",
+    "notes": "",
+    "source": "אנשי קשר לסוכן - קבוצת פיקוח.pptx"
+  },
+  {
+    "company": "מגדל",
+    "category": "משכנתה",
+    "action": "הפקות / השלמת חוסרים משכנתה",
+    "email": "blmash@migdal.co.il",
+    "notes": "",
+    "source": "אנשי קשר לסוכן - קבוצת פיקוח.pptx"
+  },
+  {
+    "company": "מגדל",
+    "category": "שינויים",
+    "action": "מינויי סוכן, עדכון וכו׳",
+    "email": "migdal_changes@migdal.co.il",
+    "notes": "",
+    "source": "אנשי קשר לסוכן - קבוצת פיקוח.pptx"
+  },
+  {
+    "company": "מגדל",
+    "category": "שירות",
+    "action": "שירות לסוכן",
+    "email": "sochnim@migdal.co.il",
+    "notes": "",
+    "source": "אנשי קשר לסוכן - קבוצת פיקוח.pptx"
+  },
+  {
+    "company": "מגדל",
+    "category": "פיננסים",
+    "action": "דסק פיננסים",
+    "email": "vipdesk_tst@migdal.co.il",
+    "notes": "",
+    "source": "אנשי קשר לסוכן - קבוצת פיקוח.pptx"
+  },
+  {
+    "company": "מגדל",
+    "category": "ניוד",
+    "action": "שירות ניוד כל המוצרים",
+    "email": "sherut_niud@migdal.co.il",
+    "notes": "",
+    "source": "אנשי קשר לסוכן - קבוצת פיקוח.pptx"
+  },
+  {
+    "company": "מגדל",
+    "category": "גמלאים",
+    "action": "קבלת קצבה גמלאים",
+    "email": "SirutSochenGimlaim@migdal.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מגדל",
+    "category": "פנסיה",
+    "action": "תביעות פנסיה",
+    "email": "makefetclaim@migdal.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מגדל",
+    "category": "גמל",
+    "action": "פדיון גמל",
+    "email": "migdalgemel@migdal.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "הפקדות",
+    "action": "אסמכתא להפקדה",
+    "email": "Hafkadot@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "פיננסים",
+    "action": "אינווסט אסמכתא להפקדה",
+    "email": "finance@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "פנסיה",
+    "action": "גביה פנסיה",
+    "email": "pensya_sochnim@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "גמל",
+    "action": "שינוי מסלול",
+    "email": "Bmaslul.Gemel@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "גמל",
+    "action": "שינויים",
+    "email": "idkonim@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "הוראת קבע",
+    "action": "הפקה או שינוי",
+    "email": "hok@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "גמל",
+    "action": "הצטרפויות",
+    "email": "Gemel_Hitztapuyot@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "כללי",
+    "action": "דסק סוכנים",
+    "email": "Spro4@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "מנהלים",
+    "action": "פדיון ושינויים",
+    "email": "f1@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הפניקס",
+    "category": "גמל",
+    "action": "פדיון משיכות",
+    "email": "gemel_tash@fnx.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הראל",
+    "category": "מינוי סוכן",
+    "action": "מינוי סוכן",
+    "email": "polisotbs@harel-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הראל",
+    "category": "גמל",
+    "action": "ייפוי כח",
+    "email": "gemelms@harel-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הראל",
+    "category": "פנסיה",
+    "action": "הוראת קבע פנסיה",
+    "email": "hokpension@harel-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הראל",
+    "category": "בריאות",
+    "action": "שינויים בריאות",
+    "email": "jrm3.briut@harel-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הראל",
+    "category": "פנסיה",
+    "action": "תיאום מס ותשלומי פנסיה",
+    "email": "tashlumpensia@harel-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הראל",
+    "category": "גמל",
+    "action": "פדיון גמל",
+    "email": "mfax@harel-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "הראל",
+    "category": "בריאות",
+    "action": "תביעות בריאות",
+    "email": "tvbriut@harel-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "דסק סוכנים",
+    "action": "דסק סוכנים",
+    "email": "Agent1@meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "גמל והשתלמות",
+    "action": "אסמכתאות",
+    "email": "Hafkadot@Meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "העברה",
+    "action": "ביטול העברה",
+    "email": "Bitule.havarot@Meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "גמל",
+    "action": "הוראת קבע",
+    "email": "horaotkevagemel@meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "מסלולים",
+    "action": "העברה בין מסלולים",
+    "email": "maslul@meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "הצטרפות",
+    "action": "הצטרפויות והעברות",
+    "email": "viptmd@meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "גמל",
+    "action": "פדיון",
+    "email": "Gemel-p@Meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מיטב",
+    "category": "שירות",
+    "action": "שירות לסוכן",
+    "email": "S.P5@meitav.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "איילון",
+    "category": "הצטרפות",
+    "action": "הצטרפות",
+    "email": "bht@ayalon-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "איילון",
+    "category": "ייפוי כח",
+    "action": "סדק וייפוי כח",
+    "email": "mailh@ayalon-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "איילון",
+    "category": "תביעות",
+    "action": "תביעות בריאות",
+    "email": "tviot_briut@ayalon-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "איילון",
+    "category": "תביעות",
+    "action": "תביעות תאונות אישיות",
+    "email": "tviot_t.e@ayalon-ins.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "אנליסט",
+    "category": "דסק סוכנים",
+    "action": "דסק סוכנים",
+    "email": "sochnim@analyst.co.il",
+    "notes": "",
+    "source": "דמי ניהול באנליסט.pdf"
+  },
+  {
+    "company": "מנורה",
+    "category": "ביטוח",
+    "action": "ביטוח חיים/כללי",
+    "email": "LIFEINS-M@MENORA.CO.IL",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "מנורה",
+    "category": "הפקה",
+    "action": "דסק סוכנים הפקה",
+    "email": "hafaka15@menora.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "ילין לפידות",
+    "category": "פדיון",
+    "action": "פדיון",
+    "email": "meshicha@yl-invest.co.il",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  },
+  {
+    "company": "עמיתים",
+    "category": "פדיונות",
+    "action": "פדיונות",
+    "email": "pdyonot@amitim.com",
+    "notes": "",
+    "source": "רשימת אנשי קשר"
+  }
+]

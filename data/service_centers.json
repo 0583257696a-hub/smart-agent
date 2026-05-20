@@ -1,0 +1,101 @@
+[
+  {
+    "company": "אקסנס/הפניקס גמל",
+    "department": "שירות",
+    "phone": "03-7537922",
+    "email": "sherot@xnes.co.il",
+    "hours": "",
+    "customer_phone": "*2225",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "אלטשולר",
+    "department": "דסק סוכנים",
+    "phone": "*5664",
+    "email": "s-sherut@altshul.co.il",
+    "hours": "9:00-14:00",
+    "customer_phone": "*5054",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "הפניקס",
+    "department": "מוקד",
+    "phone": "*2724",
+    "email": "fnxinfo@Phoenix.co.il",
+    "hours": "8:00-16:00",
+    "customer_phone": "03-7332222",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "הראל",
+    "department": "מוקד",
+    "phone": "*9254",
+    "email": "",
+    "hours": "8:00-16:00",
+    "customer_phone": "*2735",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "כלל",
+    "department": "ביטוח",
+    "phone": "037912364",
+    "email": "",
+    "hours": "",
+    "customer_phone": "03-9420440",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "מגדל",
+    "department": "שירות",
+    "phone": "076-8867979",
+    "email": "sochnim@migdal.co.il",
+    "hours": "8:00-16:00",
+    "customer_phone": "03-9201010",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "מור",
+    "department": "סוכנים",
+    "phone": "03-7113618 / 074-7811201",
+    "email": "agents@more.co.il",
+    "hours": "9:00-14:00",
+    "customer_phone": "03-5605459",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "מיטב",
+    "department": "מוקד",
+    "phone": "*3366",
+    "email": "",
+    "hours": "מ-9 בבוקר",
+    "customer_phone": "*3366",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "מנורה",
+    "department": "פנסיה וגמל",
+    "phone": "0723838103",
+    "email": "",
+    "hours": "8:00-16:30",
+    "customer_phone": "*2000",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "ילין לפידות",
+    "department": "סוכנים",
+    "phone": "03-7132345",
+    "email": "sochnim@yl-invest.co.il",
+    "hours": "8:30-17:00",
+    "customer_phone": "",
+    "source": "צילום משתמש"
+  },
+  {
+    "company": "מגדל",
+    "department": "מוקד משכנתה",
+    "phone": "076-8865544",
+    "email": "",
+    "hours": "",
+    "customer_phone": "",
+    "source": "אנשי קשר לסוכן - קבוצת פיקוח.pptx"
+  }
+]

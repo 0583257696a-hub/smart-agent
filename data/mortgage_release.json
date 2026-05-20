@@ -1,0 +1,74 @@
+[
+  {
+    "entity": "אוטו קאש",
+    "contact": "backofficeautocash@auto-cash.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "יוניגו",
+    "contact": "msc@ubi.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "יוניגו ליסינג",
+    "contact": "leasingsupport@ubi.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "אלבר קרדיט",
+    "contact": "carloan@albar.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "בנק ירושלים",
+    "contact": "Polisot_security_sa@bankjerusalem.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "דיסקונט רכב",
+    "contact": "bdl.polisot@dbank.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "דיסקונט משכנתא",
+    "contact": "mashkantadiscount@dbank.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "ישראכרט",
+    "contact": "rechev@isracard.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "כלל משכנתאות",
+    "contact": "PolicyMortgage@clal-ins.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "לאומי משכנתאות",
+    "contact": "bituchim.mail@bankleumi.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "מזרחי טפחות משכנתאות",
+    "contact": "polisa@umtb.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  },
+  {
+    "entity": "פועלים",
+    "contact": "polisot@poalim.co.il",
+    "type": "מייל",
+    "source": "צילום משתמש"
+  }
+]

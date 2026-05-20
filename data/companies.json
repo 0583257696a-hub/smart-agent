@@ -1,0 +1,83 @@
+[
+  {
+    "name": "הפניקס",
+    "aliases": [
+      "פניקס",
+      "Phoenix",
+      "fnx"
+    ],
+    "type": "ביטוח"
+  },
+  {
+    "name": "כלל",
+    "aliases": [
+      "Clal",
+      "clal"
+    ],
+    "type": "ביטוח"
+  },
+  {
+    "name": "מגדל",
+    "aliases": [
+      "Migdal",
+      "migdal"
+    ],
+    "type": "ביטוח"
+  },
+  {
+    "name": "הראל",
+    "aliases": [
+      "Harel",
+      "harel"
+    ],
+    "type": "ביטוח"
+  },
+  {
+    "name": "מיטב",
+    "aliases": [
+      "Meitav",
+      "meitav"
+    ],
+    "type": "בית השקעות"
+  },
+  {
+    "name": "אלטשולר",
+    "aliases": [
+      "Altshuler",
+      "altshul"
+    ],
+    "type": "בית השקעות"
+  },
+  {
+    "name": "מור",
+    "aliases": [
+      "More",
+      "more"
+    ],
+    "type": "בית השקעות"
+  },
+  {
+    "name": "הכשרה",
+    "aliases": [
+      "hcsra",
+      "הכשרה ביטוח"
+    ],
+    "type": "ביטוח"
+  },
+  {
+    "name": "אנליסט",
+    "aliases": [
+      "Analyst",
+      "analyst"
+    ],
+    "type": "בית השקעות"
+  },
+  {
+    "name": "מנורה",
+    "aliases": [
+      "Menora",
+      "menora"
+    ],
+    "type": "ביטוח"
+  }
+]

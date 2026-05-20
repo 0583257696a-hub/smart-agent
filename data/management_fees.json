@@ -1,0 +1,672 @@
+[
+  {
+    "company": "אנליסט",
+    "product": "גמל/השתלמות/גמל להשקעה",
+    "range": "עד 100,000",
+    "balance_fee": "0.80%",
+    "deposit_fee": "0%",
+    "validity": "2025",
+    "priority": 1,
+    "source": "דמי ניהול באנליסט.pdf"
+  },
+  {
+    "company": "אנליסט",
+    "product": "גמל/השתלמות/גמל להשקעה",
+    "range": "100,001-250,000",
+    "balance_fee": "0.75%",
+    "deposit_fee": "0%",
+    "validity": "2025",
+    "priority": 1,
+    "source": "דמי ניהול באנליסט.pdf"
+  },
+  {
+    "company": "אנליסט",
+    "product": "גמל/השתלמות/גמל להשקעה",
+    "range": "250,001-500,000",
+    "balance_fee": "0.70%",
+    "deposit_fee": "0%",
+    "validity": "2025",
+    "priority": 1,
+    "source": "דמי ניהול באנליסט.pdf"
+  },
+  {
+    "company": "אנליסט",
+    "product": "גמל/השתלמות/גמל להשקעה",
+    "range": "500,001-750,000",
+    "balance_fee": "0.67%",
+    "deposit_fee": "0%",
+    "validity": "2025",
+    "priority": 1,
+    "source": "דמי ניהול באנליסט.pdf"
+  },
+  {
+    "company": "אנליסט",
+    "product": "גמל/השתלמות/גמל להשקעה",
+    "range": "750,001-1,000,000",
+    "balance_fee": "0.65%",
+    "deposit_fee": "0%",
+    "validity": "2025",
+    "priority": 1,
+    "source": "דמי ניהול באנליסט.pdf"
+  },
+  {
+    "company": "אנליסט",
+    "product": "גמל/השתלמות/גמל להשקעה",
+    "range": "1,000,001+",
+    "balance_fee": "0.60%",
+    "deposit_fee": "0%",
+    "validity": "2025",
+    "priority": 1,
+    "source": "דמי ניהול באנליסט.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST",
+    "range": "הפקדה חודשית שוטפת",
+    "balance_fee": "1.10%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "דמי ניהול בסט אינווסט.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST",
+    "range": "5,000-99,999",
+    "balance_fee": "1.10%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "דמי ניהול בסט אינווסט.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST",
+    "range": "100,000-249,999",
+    "balance_fee": "1.00%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "דמי ניהול בסט אינווסט.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST",
+    "range": "250,000-499,999",
+    "balance_fee": "0.95%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "דמי ניהול בסט אינווסט.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST",
+    "range": "500,000-999,999",
+    "balance_fee": "0.90%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "דמי ניהול בסט אינווסט.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST",
+    "range": "1,000,000+",
+    "balance_fee": "0.85%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "דמי ניהול בסט אינווסט.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST הייטקזון",
+    "range": "עד 250,000",
+    "balance_fee": "0.95%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "אנשי קשר.pdf"
+  },
+  {
+    "company": "הכשרה",
+    "product": "BEST INVEST הייטקזון",
+    "range": "250,000+",
+    "balance_fee": "0.85%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "אנשי קשר.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "השתלמות וגמל",
+    "range": "עד 150,000",
+    "balance_fee": "0.70%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "השתלמות וגמל",
+    "range": "150,000-300,000",
+    "balance_fee": "0.65%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "השתלמות וגמל",
+    "range": "300,000-900,000",
+    "balance_fee": "0.60%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "השתלמות וגמל",
+    "range": "900,000+",
+    "balance_fee": "0.55%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "פנסיה",
+    "range": "שכר עד 3,000",
+    "balance_fee": "0.30%",
+    "deposit_fee": "5.8%",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "פנסיה",
+    "range": "שכר 3,000-6,000",
+    "balance_fee": "0.25%",
+    "deposit_fee": "3%",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "פנסיה",
+    "range": "שכר 6,000-8,000",
+    "balance_fee": "0.19%",
+    "deposit_fee": "1.9%",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "פנסיה",
+    "range": "שכר 8,000-10,000",
+    "balance_fee": "0.17%",
+    "deposit_fee": "1.7%",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "פנסיה",
+    "range": "שכר 10,000+",
+    "balance_fee": "0.15%",
+    "deposit_fee": "1.5%",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "גמל להשקעה",
+    "range": "עד 150,000",
+    "balance_fee": "0.70%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "גמל להשקעה",
+    "range": "150,000-300,000",
+    "balance_fee": "0.65%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "גמל להשקעה",
+    "range": "300,000-650,000",
+    "balance_fee": "0.60%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הראל",
+    "product": "גמל להשקעה",
+    "range": "650,000+",
+    "balance_fee": "0.55%",
+    "deposit_fee": "",
+    "validity": "מאי 2025 עד סוף 2025",
+    "priority": 1,
+    "source": "דמי ניהול בכל המוצרים יוני 2025.pdf"
+  },
+  {
+    "company": "הפניקס",
+    "product": "קרנות פנסיה",
+    "range": "0-150 אלש",
+    "balance_fee": "0.22%",
+    "deposit_fee": "1.5%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "קרנות פנסיה",
+    "range": "150-350 אלש",
+    "balance_fee": "0.18%",
+    "deposit_fee": "1.5%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "קרנות פנסיה",
+    "range": "350-600 אלש",
+    "balance_fee": "0.14%",
+    "deposit_fee": "1.5%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "קרנות פנסיה",
+    "range": "600+ אלש",
+    "balance_fee": "0.10%",
+    "deposit_fee": "1.5%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "גמל והשתלמות",
+    "range": "0-250 אלש",
+    "balance_fee": "0.75%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "גמל והשתלמות",
+    "range": "250-500 אלש",
+    "balance_fee": "0.70%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "גמל והשתלמות",
+    "range": "500-1000 אלש",
+    "balance_fee": "0.68%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "גמל והשתלמות",
+    "range": "1000-1500 אלש",
+    "balance_fee": "0.65%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "גמל והשתלמות",
+    "range": "1500-2000 אלש",
+    "balance_fee": "0.62%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "גמל והשתלמות",
+    "range": "2000+ אלש",
+    "balance_fee": "0.60%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "חיסכון לפרישה",
+    "range": "0-250 אלש",
+    "balance_fee": "0.75%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "חיסכון לפרישה",
+    "range": "250-500 אלש",
+    "balance_fee": "0.70%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "חיסכון לפרישה",
+    "range": "500-1000 אלש",
+    "balance_fee": "0.68%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "חיסכון לפרישה",
+    "range": "1000-1500 אלש",
+    "balance_fee": "0.65%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "חיסכון לפרישה",
+    "range": "1500-2000 אלש",
+    "balance_fee": "0.62%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "הפניקס",
+    "product": "חיסכון לפרישה",
+    "range": "2000+ אלש",
+    "balance_fee": "0.60%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה א",
+    "range": "0-100 אלש",
+    "balance_fee": "0.22%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה ב",
+    "range": "0-100 אלש",
+    "balance_fee": "0.12%",
+    "deposit_fee": "2%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה א",
+    "range": "100-500 אלש",
+    "balance_fee": "0.20%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה ב",
+    "range": "100-500 אלש",
+    "balance_fee": "0.12%",
+    "deposit_fee": "1.7%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה א",
+    "range": "500-1000 אלש",
+    "balance_fee": "0.18%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה ב",
+    "range": "500-1000 אלש",
+    "balance_fee": "0.11%",
+    "deposit_fee": "1.6%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה א",
+    "range": "600+ אלש",
+    "balance_fee": "0.15%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - צבירה חלופה ב",
+    "range": "600+ אלש",
+    "balance_fee": "0.10%",
+    "deposit_fee": "1.5%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה א",
+    "range": "שכר 10000",
+    "balance_fee": "0.22%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה ב",
+    "range": "שכר 10000",
+    "balance_fee": "0.12%",
+    "deposit_fee": "2%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה א",
+    "range": "שכר 15000",
+    "balance_fee": "0.20%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה ב",
+    "range": "שכר 15000",
+    "balance_fee": "0.12%",
+    "deposit_fee": "1.7%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה א",
+    "range": "שכר 20000",
+    "balance_fee": "0.18%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה ב",
+    "range": "שכר 20000",
+    "balance_fee": "0.11%",
+    "deposit_fee": "1.6%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה א",
+    "range": "שכר 30000",
+    "balance_fee": "0.15%",
+    "deposit_fee": "1%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "קרנות פנסיה - שכר חלופה ב",
+    "range": "שכר 30000",
+    "balance_fee": "0.10%",
+    "deposit_fee": "1.5%",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל והשתלמות",
+    "range": "0-100 אלש",
+    "balance_fee": "0.85%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל והשתלמות",
+    "range": "100-300 אלש",
+    "balance_fee": "0.80%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל והשתלמות",
+    "range": "300-500 אלש",
+    "balance_fee": "0.75%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל והשתלמות",
+    "range": "500-1000 אלש",
+    "balance_fee": "0.70%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל והשתלמות",
+    "range": "1000-2500 אלש",
+    "balance_fee": "0.65%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל והשתלמות",
+    "range": "2500+ אלש",
+    "balance_fee": "0.60%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל להשקעה",
+    "range": "כל סכום",
+    "balance_fee": "0.80%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  },
+  {
+    "company": "מיטב",
+    "product": "גמל להשקעה",
+    "range": "באישור מפקח",
+    "balance_fee": "0.65%",
+    "deposit_fee": "",
+    "validity": "",
+    "priority": 1,
+    "source": "ארגז כלים דמי ניהול ביצרנים.xlsx"
+  }
+]

@@ -1,0 +1,1005 @@
+[
+  {
+    "company": "איילון",
+    "product": "דרור 1",
+    "track": "גיל 30 - סכום ביטוח 1,000,000 ₪",
+    "agreement_number": "1373",
+    "discounts": {
+      "year1": "55%",
+      "year2": "35%",
+      "year3": "25%",
+      "year4": "",
+      "year5to6": "15%"
+    },
+    "validity": "Sep-24",
+    "notes": "גיל 30",
+    "conditions": "סכום ביטוח מוגדל",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "איילון",
+    "product": "דרור 1",
+    "track": "גיל 40 - הצטרפות יחיד - 1,000,000 ₪",
+    "agreement_number": "19993",
+    "discounts": {
+      "year1": "65%",
+      "year2": "55%",
+      "year3": "40%",
+      "year4": "30%",
+      "year5to6": "20%-15%"
+    },
+    "validity": "Sep-24",
+    "notes": "יחיד",
+    "conditions": "חיתום מלא",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "איילון",
+    "product": "דרור 1",
+    "track": "גיל 40 - שני בני זוג באותה פוליסה - 500,000 ₪",
+    "agreement_number": "19993",
+    "discounts": {
+      "year1": "65%",
+      "year2": "55%",
+      "year3": "40%",
+      "year4": "30%",
+      "year5to6": "20%-15%"
+    },
+    "validity": "Sep-24",
+    "notes": "זוג",
+    "conditions": "פוליסה משותפת",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "איילון",
+    "product": "דרור 1",
+    "track": "גיל 45 - הצטרפות יחיד - 1,500,000 ₪",
+    "agreement_number": "60094",
+    "discounts": {
+      "year1": "65%",
+      "year2": "55%",
+      "year3": "45%",
+      "year4": "35%",
+      "year5to6": "25%-20%"
+    },
+    "validity": "Sep-24",
+    "notes": "סכום ביטוח גבוה",
+    "conditions": "בכפוף לאישור",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "איילון",
+    "product": "דרור 1",
+    "track": "כל גיל - סכום ביטוח 500,000 ₪",
+    "agreement_number": "56095",
+    "discounts": {
+      "year1": "55%",
+      "year2": "30%",
+      "year3": "20%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "Sep-24",
+    "notes": "מסלול בסיס",
+    "conditions": "כפוף לתנאי החברה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "איילון",
+    "product": "דרור למשכנתא",
+    "track": "גיל 35 - סכום ביטוח 1,000,000 ₪",
+    "agreement_number": "13626",
+    "discounts": {
+      "year1": "50%",
+      "year2": "35%",
+      "year3": "25%",
+      "year4": "",
+      "year5to6": "15%"
+    },
+    "validity": "Sep-24",
+    "notes": "משכנתא",
+    "conditions": "סכום ביטוח מוגדל",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "איילון",
+    "product": "דרור למשכנתא",
+    "track": "גיל 40 - סכום ביטוח 1,500,000 ₪",
+    "agreement_number": "60096",
+    "discounts": {
+      "year1": "50%",
+      "year2": "50%",
+      "year3": "45%",
+      "year4": "40%",
+      "year5to6": "15%"
+    },
+    "validity": "Sep-24",
+    "notes": "משכנתא מורחב",
+    "conditions": "בכפוף לתנאי החברה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "איילון",
+    "product": "דרור למשכנתא",
+    "track": "כל גיל - סכום ביטוח 500,000 ₪",
+    "agreement_number": "60095",
+    "discounts": {
+      "year1": "55%",
+      "year2": "30%",
+      "year3": "20%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "Sep-24",
+    "notes": "משכנתא",
+    "conditions": "ביטוח חיים למשכנתא",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "בריאות",
+    "track": "בריאות כללי",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "18%",
+      "year2": "18%",
+      "year3": "18%",
+      "year4": "18%",
+      "year5to6": "18%"
+    },
+    "validity": "10 שנים",
+    "notes": "הנחת בריאות",
+    "conditions": "תרופות / השתלות / ניתוחים בחו\"ל / משלים שב\"ן",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "בריאות",
+    "track": "מחלות קשות",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "40%",
+      "year2": "40%",
+      "year3": "40%",
+      "year4": "40%",
+      "year5to6": "40%"
+    },
+    "validity": "10 שנים",
+    "notes": "הנחת מחלות קשות",
+    "conditions": "מזור / מזור מורחב",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "מגן 1",
+    "track": "גולד",
+    "agreement_number": "גולד",
+    "discounts": {
+      "year1": "65%",
+      "year2": "60%",
+      "year3": "50%",
+      "year4": "50%",
+      "year5to6": "50%"
+    },
+    "validity": "גילאי 35-55",
+    "notes": "פרמיה מינימלית 300 ₪",
+    "conditions": "סכום ביטוח מינימלי 1,500,000 ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "מגן 1",
+    "track": "מסלול 100",
+    "agreement_number": "100",
+    "discounts": {
+      "year1": "55%",
+      "year2": "50%",
+      "year3": "30%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 125 ₪",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "מגן 1",
+    "track": "מסלול 200",
+    "agreement_number": "200",
+    "discounts": {
+      "year1": "60%",
+      "year2": "50%",
+      "year3": "40%",
+      "year4": "30%",
+      "year5to6": "25%-15%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 150 ₪",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "מגן 1",
+    "track": "מסלול 300",
+    "agreement_number": "300",
+    "discounts": {
+      "year1": "40%",
+      "year2": "30%",
+      "year3": "15%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 100 ₪",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "מגן 1",
+    "track": "מסלול 400",
+    "agreement_number": "400",
+    "discounts": {
+      "year1": "15%",
+      "year2": "15%",
+      "year3": "15%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "ללא הגבלה",
+    "notes": "פרמיה מינימלית 60 ₪",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "מגן 1",
+    "track": "סילבר",
+    "agreement_number": "סילבר",
+    "discounts": {
+      "year1": "65%",
+      "year2": "60%",
+      "year3": "50%",
+      "year4": "50%",
+      "year5to6": "50%"
+    },
+    "validity": "גילאי 35-60",
+    "notes": "פרמיה מינימלית 200 ₪",
+    "conditions": "סכום ביטוח מינימלי 1,000,000 ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 100-101",
+    "agreement_number": "100-101",
+    "discounts": {
+      "year1": "55%",
+      "year2": "50%",
+      "year3": "30%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 125 ברוטו",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 200",
+    "agreement_number": "200",
+    "discounts": {
+      "year1": "60%",
+      "year2": "50%",
+      "year3": "40%",
+      "year4": "30%",
+      "year5to6": "25%-15%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 150 ברוטו",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 500",
+    "agreement_number": "500",
+    "discounts": {
+      "year1": "40%",
+      "year2": "30%",
+      "year3": "15%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 100 ברוטו",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 600-601",
+    "agreement_number": "600-601",
+    "discounts": {
+      "year1": "50%",
+      "year2": "40%",
+      "year3": "30%",
+      "year4": "25%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 100 ברוטו",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 700 / 701-702",
+    "agreement_number": "700 / 701-702",
+    "discounts": {
+      "year1": "50%",
+      "year2": "40%",
+      "year3": "30%",
+      "year4": "25%",
+      "year5to6": "15%"
+    },
+    "validity": "15 שנים",
+    "notes": "5% קיזוז עמלת נפרעים",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 800",
+    "agreement_number": "800",
+    "discounts": {
+      "year1": "40%",
+      "year2": "40%",
+      "year3": "40%",
+      "year4": "40%",
+      "year5to6": "40%"
+    },
+    "validity": "10 שנים",
+    "notes": "5% קיזוז עמלת נפרעים",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 850",
+    "agreement_number": "850",
+    "discounts": {
+      "year1": "60%",
+      "year2": "50%",
+      "year3": "50%",
+      "year4": "50%",
+      "year5to6": "50%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 150 ברוטו",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הכשרה",
+    "product": "ריסק משכנתא",
+    "track": "מסלול 860",
+    "agreement_number": "860",
+    "discounts": {
+      "year1": "30%",
+      "year2": "30%",
+      "year3": "30%",
+      "year4": "30%",
+      "year5to6": "30%"
+    },
+    "validity": "10 שנים",
+    "notes": "פרמיה מינימלית 100 ברוטו",
+    "conditions": "אין הגבלה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "בריאות",
+    "track": "פוליסת בריאות",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "10%",
+      "year2": "10%",
+      "year3": "10%",
+      "year4": "10%",
+      "year5to6": "10%"
+    },
+    "validity": "10 שנים",
+    "notes": "הנחת בריאות",
+    "conditions": "למצטרפים חדשים",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "בריאות",
+    "track": "פוליסת בריאות - טריפל כיסויים",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "18%",
+      "year2": "18%",
+      "year3": "18%",
+      "year4": "18%",
+      "year5to6": "18%"
+    },
+    "validity": "10 שנים",
+    "notes": "טריפל כיסויים",
+    "conditions": "כיסוי בסיס + מגן 1 / מגן חודשי",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "בריאות",
+    "track": "פוליסת בריאות - מכירה צולבת",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "15%",
+      "year2": "15%",
+      "year3": "15%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "מכירה צולבת",
+    "conditions": "כיסוי הבסיס + מעניקת זהב פרימיום",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "מגן 1",
+    "track": "פרמיה 125 ₪",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "65%",
+      "year2": "55%",
+      "year3": "45%",
+      "year4": "",
+      "year5to6": "30%"
+    },
+    "validity": "שנים 1-6",
+    "notes": "הנחה לבחירה",
+    "conditions": "פרמיה 125 ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "מגן 1",
+    "track": "פרמיה 175 ₪",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "65%",
+      "year2": "55%",
+      "year3": "40%",
+      "year4": "",
+      "year5to6": "40%"
+    },
+    "validity": "שנים 1-6",
+    "notes": "הנחה לבחירה",
+    "conditions": "פרמיה 175 ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "מגן 1",
+    "track": "פרמיה 250 ₪",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "65%",
+      "year2": "50%",
+      "year3": "40%",
+      "year4": "",
+      "year5to6": "30%"
+    },
+    "validity": "שנים 1-7",
+    "notes": "הנחה לבחירה",
+    "conditions": "פרמיה 250 ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "מגן 1",
+    "track": "פרמיה 60 ₪",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "60%",
+      "year2": "50%",
+      "year3": "35%",
+      "year4": "",
+      "year5to6": "15%"
+    },
+    "validity": "שנים 1-6",
+    "notes": "מגן זוגי אקסטרה",
+    "conditions": "פרמיה 60 ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "מחלות קשות",
+    "track": "מעניקת זהב / מעניקת סרטן | טריפל כיסויים - מעניקת + בריאות + מגן 1 / מגן חודשי",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "25%",
+      "year2": "25%",
+      "year3": "25%",
+      "year4": "25%",
+      "year5to6": "25%"
+    },
+    "validity": "10 שנים",
+    "notes": "טריפל כיסויים",
+    "conditions": "מעניקת + בריאות + מגן 1 / מגן חודשי",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "מחלות קשות",
+    "track": "מעניקת זהב / מעניקת סרטן | מחלות קשות - מכירה צולבת",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "15%",
+      "year2": "15%",
+      "year3": "15%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "מחלות קשות",
+    "conditions": "מכירה צולבת",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "מחלות קשות",
+    "track": "מעניקת זהב / מעניקת סרטן | מכירה צולבת - מעניקת + ביטוח בריאות",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "20%",
+      "year2": "20%",
+      "year3": "20%",
+      "year4": "20%",
+      "year5to6": "20%"
+    },
+    "validity": "10 שנים",
+    "notes": "מכירה צולבת",
+    "conditions": "מעניקת + ביטוח בריאות",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "הראל",
+    "product": "תאונות אישיות",
+    "track": "תאונות אישיות ונכות תעסוקתית",
+    "agreement_number": "",
+    "discounts": {
+      "year1": "20%",
+      "year2": "20%",
+      "year3": "",
+      "year4": "",
+      "year5to6": ""
+    },
+    "validity": "שנים 1-2",
+    "notes": "הנחת תאונות אישיות",
+    "conditions": "ללא כפל הטבות",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "בריאות",
+    "track": "חבילת בריאות מורחבת",
+    "agreement_number": "21558",
+    "discounts": {
+      "year1": "15%",
+      "year2": "15%",
+      "year3": "15%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "10 שנים",
+    "notes": "מסלול הנחה לבחירה",
+    "conditions": "ביטוח תאונות אישיות",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "בריאות",
+    "track": "חבילת בריאות מורחבת",
+    "agreement_number": "21562",
+    "discounts": {
+      "year1": "20%",
+      "year2": "20%",
+      "year3": "20%",
+      "year4": "20%",
+      "year5to6": "20%"
+    },
+    "validity": "10 שנים",
+    "notes": "מסלול הנחה לבחירה",
+    "conditions": "ביטוח תאונות אישיות",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "בריאות",
+    "track": "מחלות קשות - מזור מורחב",
+    "agreement_number": "20452",
+    "discounts": {
+      "year1": "10%",
+      "year2": "",
+      "year3": "",
+      "year4": "",
+      "year5to6": ""
+    },
+    "validity": "גילאי 0-65",
+    "notes": "מסלול הנחה 10%",
+    "conditions": "הנחה החל מ-20 מצטרפים חדשים",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "בריאות",
+    "track": "מחלות קשות - מזור מורחב",
+    "agreement_number": "20890",
+    "discounts": {
+      "year1": "20%",
+      "year2": "",
+      "year3": "",
+      "year4": "",
+      "year5to6": ""
+    },
+    "validity": "גילאי 0-65",
+    "notes": "מסלול הנחה 20%",
+    "conditions": "הנחה החל מ-10 מצטרפים חדשים",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "גילאי 40-49 - 1 עד 3 מיליון ₪",
+    "agreement_number": "21531",
+    "discounts": {
+      "year1": "55%",
+      "year2": "50%",
+      "year3": "45%",
+      "year4": "35%",
+      "year5to6": "35%"
+    },
+    "validity": "מבצע פעיל",
+    "notes": "ללא חודש חינם",
+    "conditions": "סכום ביטוח 1-3 מיליון ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "גילאי 40-49 - עד 1 מיליון ₪",
+    "agreement_number": "21528",
+    "discounts": {
+      "year1": "50%",
+      "year2": "40%",
+      "year3": "35%",
+      "year4": "25%",
+      "year5to6": "25%"
+    },
+    "validity": "מבצע פעיל",
+    "notes": "ללא חודש חינם",
+    "conditions": "הכנסה למשפחה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "גילאי 40-49 - עד 3,000,000 ₪",
+    "agreement_number": "21540",
+    "discounts": {
+      "year1": "35%",
+      "year2": "35%",
+      "year3": "35%",
+      "year4": "35%",
+      "year5to6": "35%"
+    },
+    "validity": "קבוע",
+    "notes": "הנחות קבועות",
+    "conditions": "סכום ביטוח עד 3 מיליון ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "גילאי 50-67 - 1 עד 3 מיליון ₪",
+    "agreement_number": "21532",
+    "discounts": {
+      "year1": "60%",
+      "year2": "60%",
+      "year3": "50%",
+      "year4": "40%",
+      "year5to6": "40%"
+    },
+    "validity": "מבצע פעיל",
+    "notes": "ללא חודש חינם",
+    "conditions": "סכום ביטוח 1-3 מיליון ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "גילאי 50-67 - עד 1 מיליון ₪",
+    "agreement_number": "21529",
+    "discounts": {
+      "year1": "55%",
+      "year2": "55%",
+      "year3": "45%",
+      "year4": "35%",
+      "year5to6": "35%"
+    },
+    "validity": "מבצע פעיל",
+    "notes": "ללא חודש חינם",
+    "conditions": "הכנסה למשפחה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "גילאי 50-67 - עד 3,000,000 ₪",
+    "agreement_number": "21541",
+    "discounts": {
+      "year1": "45%",
+      "year2": "45%",
+      "year3": "45%",
+      "year4": "45%",
+      "year5to6": "45%"
+    },
+    "validity": "קבוע",
+    "notes": "הנחות קבועות",
+    "conditions": "סכום ביטוח עד 3 מיליון ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "עד גיל 39 (כולל) - 1 עד 3 מיליון ₪",
+    "agreement_number": "21530",
+    "discounts": {
+      "year1": "55%",
+      "year2": "45%",
+      "year3": "35%",
+      "year4": "25%",
+      "year5to6": "25%"
+    },
+    "validity": "מבצע פעיל",
+    "notes": "ללא חודש חינם",
+    "conditions": "סכום ביטוח 1-3 מיליון ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "עד גיל 39 (כולל) - עד 1 מיליון ₪",
+    "agreement_number": "21527",
+    "discounts": {
+      "year1": "45%",
+      "year2": "35%",
+      "year3": "30%",
+      "year4": "15%",
+      "year5to6": "15%"
+    },
+    "validity": "מבצע פעיל",
+    "notes": "ללא חודש חינם",
+    "conditions": "הכנסה למשפחה",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק אור 1",
+    "track": "עד גיל 39 (כולל) - עד 3,000,000 ₪",
+    "agreement_number": "21539",
+    "discounts": {
+      "year1": "30%",
+      "year2": "30%",
+      "year3": "30%",
+      "year4": "30%",
+      "year5to6": "30%"
+    },
+    "validity": "קבוע",
+    "notes": "הנחות קבועות",
+    "conditions": "סכום ביטוח עד 3 מיליון ₪",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "18536",
+    "discounts": {
+      "year1": "20%",
+      "year2": "20%",
+      "year3": "20%",
+      "year4": "20%",
+      "year5to6": "20%"
+    },
+    "validity": "אין",
+    "notes": "ריסק משכנתא",
+    "conditions": "25% מהשנה ה-20 ואילך",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "18537",
+    "discounts": {
+      "year1": "30%",
+      "year2": "30%",
+      "year3": "30%",
+      "year4": "30%",
+      "year5to6": "30%"
+    },
+    "validity": "3 חודשים חינם",
+    "notes": "ריסק משכנתא",
+    "conditions": "",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "18538",
+    "discounts": {
+      "year1": "30%",
+      "year2": "30%",
+      "year3": "30%",
+      "year4": "30%",
+      "year5to6": "30%"
+    },
+    "validity": "חודש חינם",
+    "notes": "ריסק משכנתא",
+    "conditions": "",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "19154",
+    "discounts": {
+      "year1": "50%",
+      "year2": "35%",
+      "year3": "20%",
+      "year4": "20%",
+      "year5to6": "20%"
+    },
+    "validity": "אין",
+    "notes": "תקופת ביטוח 15 שנים",
+    "conditions": "55% מהשנה ה-15 ואילך",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "19155",
+    "discounts": {
+      "year1": "50%",
+      "year2": "35%",
+      "year3": "20%",
+      "year4": "20%",
+      "year5to6": "20%"
+    },
+    "validity": "3 חודשים חינם",
+    "notes": "תקופת ביטוח 15 שנים",
+    "conditions": "55% מהשנה ה-15 ואילך",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "21174",
+    "discounts": {
+      "year1": "60%",
+      "year2": "45%",
+      "year3": "35%",
+      "year4": "25%",
+      "year5to6": "25%"
+    },
+    "validity": "אין",
+    "notes": "תקופת ביטוח 15 שנים",
+    "conditions": "60% לאחר 20 שנות ביטוח",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "21175",
+    "discounts": {
+      "year1": "60%",
+      "year2": "45%",
+      "year3": "35%",
+      "year4": "25%",
+      "year5to6": "25%"
+    },
+    "validity": "חודש חינם",
+    "notes": "תקופת ביטוח 15 שנים",
+    "conditions": "60% לאחר 20 שנות ביטוח",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "21176",
+    "discounts": {
+      "year1": "60%",
+      "year2": "45%",
+      "year3": "35%",
+      "year4": "25%",
+      "year5to6": "25%"
+    },
+    "validity": "3 חודשים חינם",
+    "notes": "תקופת ביטוח 15 שנים",
+    "conditions": "60% לאחר 20 שנות ביטוח",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "21177",
+    "discounts": {
+      "year1": "65%",
+      "year2": "50%",
+      "year3": "40%",
+      "year4": "30%",
+      "year5to6": "30%"
+    },
+    "validity": "אין",
+    "notes": "תקופת ביטוח 25 שנים",
+    "conditions": "65% לאחר 20 שנות ביטוח",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "21178",
+    "discounts": {
+      "year1": "65%",
+      "year2": "50%",
+      "year3": "40%",
+      "year4": "30%",
+      "year5to6": "30%"
+    },
+    "validity": "חודש חינם",
+    "notes": "תקופת ביטוח 25 שנים",
+    "conditions": "65% לאחר 20 שנות ביטוח",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  },
+  {
+    "company": "מגדל",
+    "product": "ריסק משכנתא",
+    "track": "ריסק משכנתא עד גיל 69",
+    "agreement_number": "21179",
+    "discounts": {
+      "year1": "65%",
+      "year2": "50%",
+      "year3": "40%",
+      "year4": "30%",
+      "year5to6": "30%"
+    },
+    "validity": "3 חודשים חינם",
+    "notes": "תקופת ביטוח 25 שנים",
+    "conditions": "65% לאחר 20 שנות ביטוח",
+    "source": "מרכז_תפעול_תבנית_ייבוא_ריקה (3).xlsx"
+  }
+]
