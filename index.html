@@ -429,8 +429,29 @@
   </dialog>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    (function () {
+      function setHidden(id, value) {
+        var element = document.getElementById(id);
+        if (element) element.hidden = value;
+      }
+      function route() {
+        var view = (location.hash || "#landing").replace("#", "");
+        var isApp = view === "app";
+        var isAdmin = view === "admin";
+        setHidden("publicPortal", isApp || isAdmin);
+        setHidden("adminPortal", !isAdmin);
+        setHidden("appShell", !isApp);
+        setHidden("landingView", !["", "landing", "features", "security", "workflow"].includes(view));
+        setHidden("loginView", view !== "login");
+        setHidden("registerView", view !== "register");
+      }
+      window.addEventListener("hashchange", route);
+      if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", route);
+      else route();
+    }());
+  </script>
   <script src="assets/vendor/xlsx.full.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/config.js"></script>
   <script src="js/excel.js"></script>
   <script src="js/supabase-config.js"></script>

@@ -39,12 +39,11 @@ if (document.readyState === "loading") {
 
 async function initPortal() {
   cachePortalElements();
-  initSupabaseClient();
   if (!portalState.useSupabase) ensureDemoAdmin();
   bindPortalEvents();
   renderPortalRoute();
   window.addEventListener("hashchange", renderPortalRoute);
-  restoreSupabaseSession().then(renderPortalRoute).catch(error => {
+  bootstrapSupabase().then(renderPortalRoute).catch(error => {
     console.warn("Supabase session restore failed", error);
   });
 }
@@ -62,6 +61,33 @@ function initSupabaseClient() {
   if (!window.supabase || !config.url || !config.publishableKey) return;
   portalState.supabase = window.supabase.createClient(config.url, config.publishableKey);
   portalState.useSupabase = true;
+}
+
+async function bootstrapSupabase() {
+  await loadSupabaseSdk();
+  initSupabaseClient();
+  await restoreSupabaseSession();
+}
+
+function loadSupabaseSdk() {
+  if (window.supabase) return Promise.resolve();
+  return new Promise(resolve => {
+    const existing = document.querySelector("script[data-supabase-sdk]");
+    if (existing) {
+      existing.addEventListener("load", () => resolve(), { once: true });
+      existing.addEventListener("error", () => resolve(), { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+    script.async = true;
+    script.dataset.supabaseSdk = "true";
+    script.onload = () => resolve();
+    script.onerror = () => resolve();
+    document.head.appendChild(script);
+    window.setTimeout(resolve, 4000);
+  });
 }
 
 function bindPortalEvents() {
