@@ -1150,7 +1150,7 @@ function sendSelectedTemplateEmail() {
   if (!targetEmails.length || !sendTemplate) return;
   const selectedClient = selectedSendClientIndex !== null ? DB.clients?.[selectedSendClientIndex] : null;
   const subjectText = buildTemplateSubject(sendTemplate.subject || "", selectedClient);
-  const subject = encodeURIComponent(addRtlMarks(subjectText));
+  const subject = encodeURIComponent(formatMailtoRtlSubject(subjectText));
   const body = encodeURIComponent(formatMailtoRtlPlainText(buildEmailBodyWithSignature(sendTemplate.body || "")));
   const filingEmail = getFilingEmail();
   const cc = filingEmail ? `&cc=${encodeURIComponent(filingEmail)}` : "";
@@ -1161,8 +1161,10 @@ function sendSelectedTemplateEmail() {
 function buildTemplateSubject(subject = "", client = null) {
   const cleanSubject = decodeEscapedNewlines(subject || "").trim();
   if (!client) return cleanSubject;
-  const clientPart = [clientFullName(client), client.national_id].filter(Boolean).join(" ");
-  return clientPart ? `${clientPart} - ${cleanSubject}` : cleanSubject;
+  const fullName = clientFullName(client);
+  const nationalId = String(client.national_id || "").trim();
+  const clientPart = [fullName, nationalId ? `ת.ז ${nationalId}` : ""].filter(Boolean).join(" ");
+  return [clientPart, cleanSubject].filter(Boolean).join(" ");
 }
 
 function buildEmailBodyWithSignature(templateBody = "") {
@@ -1246,10 +1248,10 @@ function maskNationalId(value = "") {
   return `${text.slice(0, 2)}${"*".repeat(Math.max(text.length - 2, 0))}`;
 }
 
-function addRtlMarks(value = "") {
-  const rtlMark = "\u200F";
-  const text = String(value || "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
-  return text.split("\n").map(line => line ? `${rtlMark}${line}` : rtlMark).join("\n");
+function formatMailtoRtlSubject(value = "") {
+  const rtlEmbed = "\u202B";
+  const popDirection = "\u202C";
+  return `${rtlEmbed}${String(value || "").trim()}${popDirection}`;
 }
 
 function formatMailtoRtlPlainText(value = "") {

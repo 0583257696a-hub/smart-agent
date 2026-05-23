@@ -1651,11 +1651,12 @@ th.actions-col,
 .modal {
   width: min(820px, calc(100vw - 28px));
   max-width: calc(100vw - 28px);
+  max-height: calc(100dvh - 28px);
   border: 0;
   padding: 0;
   background: transparent;
   color: var(--text);
-  overflow: visible;
+  overflow: hidden;
 }
 
 .modal::backdrop {
@@ -1666,11 +1667,13 @@ th.actions-col,
 .modal-card {
   width: 100%;
   max-width: 100%;
+  max-height: calc(100dvh - 28px);
   border: 1px solid rgba(219, 230, 244, 0.9);
   border-radius: 22px;
   background: #fff;
   box-shadow: 0 30px 90px rgba(67, 96, 144, 0.22);
   padding: 22px;
+  overflow: auto;
 }
 
 .modal-head {
@@ -1798,7 +1801,10 @@ th.actions-col,
 
 .send-template-modal {
   display: grid;
-  gap: 14px;
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto;
+  gap: 12px;
+  max-height: calc(100dvh - 74px);
+  overflow: hidden;
 }
 
 .send-search-box {
@@ -1821,9 +1827,9 @@ th.actions-col,
   border: 1px solid var(--border);
   border-radius: 18px;
   background: #f8fbff;
-  padding: 12px;
+  padding: 10px 12px;
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .send-client-head {
@@ -1848,6 +1854,8 @@ th.actions-col,
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  max-height: 48px;
+  overflow: auto;
 }
 
 .client-pick {
@@ -1940,10 +1948,11 @@ th.actions-col,
 }
 
 .send-results {
-  max-height: min(46vh, 420px);
+  min-height: 0;
   overflow: auto;
   display: grid;
   gap: 8px;
+  align-content: start;
   padding: 2px 2px 4px;
 }
 
@@ -1953,8 +1962,8 @@ th.actions-col,
   border-radius: 14px;
   background: #fff;
   color: var(--text);
-  min-height: 62px;
-  padding: 10px 12px;
+  min-height: 56px;
+  padding: 9px 12px;
   display: grid;
   grid-template-columns: 24px minmax(96px, 0.9fr) minmax(130px, 1.1fr) minmax(180px, 1.2fr);
   gap: 10px;
@@ -2016,11 +2025,12 @@ th.actions-col,
 
 .send-action-bar {
   border-top: 1px solid var(--border);
-  padding-top: 14px;
+  padding-top: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
+  background: #fff;
 }
 
 .send-action-bar span {
@@ -2036,6 +2046,13 @@ th.actions-col,
   color: var(--text);
   direction: ltr;
   text-align: right;
+}
+
+#selectedSendEmail {
+  max-width: min(520px, 58vw);
+  max-height: 42px;
+  overflow: auto;
+  overflow-wrap: anywhere;
 }
 
 .toolbar-button.success {
