@@ -108,6 +108,23 @@ const MODULES = {
     badge: "contact_name",
     actions: ["copyEmail", "mailto", "edit", "delete"]
   },
+  clients: {
+    file: "data/clients.json",
+    label: "לקוחות",
+    title: "לקוחות",
+    icon: "user",
+    fields: ["first_name", "last_name", "national_id", "address", "phone", "email", "birth_date", "issue_date"],
+    columns: [
+      ["client_name", "שם לקוח"],
+      ["national_id", "ת.ז", "id_mask"],
+      ["email", "מייל", "ltr"]
+    ],
+    filters: [["first_name", "שם"], ["last_name", "משפחה"], ["national_id", "ת.ז"], ["email", "מייל"]],
+    primary: "first_name",
+    secondary: "national_id",
+    badge: "email",
+    actions: ["openClient", "copyEmail", "mailto", "edit", "delete"]
+  },
   management_fees: {
     file: "data/management_fees.json",
     label: "דמי ניהול",
@@ -307,6 +324,7 @@ const MODULE_SCOPE = {
   passwords: "private",
   supervisors: "private",
   employers: "private",
+  clients: "private",
   deposit_accounts: "global",
   agent_numbers: "private"
 };
@@ -321,6 +339,7 @@ Object.assign(FIELD_LABELS, {
   company: "חברה", category: "קטגוריה", action: "פעולה", email: "מייל", notes: "הערות", source: "מקור",
   title: "שם תבנית", subject: "Subject", body: "Body", system: "מערכת", url: "URL", username: "שם משתמש",
   password: "סיסמה", name: "שם", role: "תפקיד", phone: "טלפון", employer: "חברה", contact_name: "איש קשר",
+  first_name: "שם", last_name: "משפחה", client_name: "שם לקוח", national_id: "ת.ז", address: "כתובת מלאה", birth_date: "תאריך לידה", issue_date: "תאריך הנפקה",
   product: "מוצר", range: "טווח צבירה", balance_fee: "מצבירה", deposit_fee: "מהפקדה", validity: "תוקף",
   priority: "עדיפות", track: "מסלול", agreement_number: "מס' הסכם", "discounts.year1": "שנה א׳", "discounts.year2": "שנה ב׳", "discounts.year3": "שנה ג׳", "discounts.year4": "שנה ד׳", "discounts.year5to6": "שנים ה׳-ו׳", period: "תקופה", discount: "הנחה", bank: "בנק", branch: "סניף",
   account: "חשבון", iban: "IBAN", department: "מחלקה", hours: "שעות פעילות", customer_phone: "טלפון לקוחות",
@@ -333,6 +352,7 @@ const EXCEL_SHEETS = {
   passwords: ["סיסמאות", "passwords"],
   supervisors: ["מפקחים", "supervisors"],
   employers: ["מעסיקים", "employers"],
+  clients: ["לקוחות", "clients"],
   management_fees: ["דמי ניהול", "management_fees"],
   insurance_discounts: ["הנחות ביטוח", "insurance_discounts"],
   deposit_accounts: ["חשבונות בנק", "deposit_accounts"],
@@ -364,6 +384,12 @@ const EXCEL_HEADER_ALIASES = {
   phone: ["טלפון"],
   employer: ["מעסיק", "חברה"],
   contact_name: ["איש קשר"],
+  first_name: ["שם", "שם פרטי", "פרטי"],
+  last_name: ["משפחה", "שם משפחה"],
+  national_id: ["ת.ז", "תז", "תעודת זהות", "מספר זהות", "מס' זהות", "זהות"],
+  address: ["כתובת", "כתובת מלאה"],
+  birth_date: ["תאריך לידה", "לידה"],
+  issue_date: ["תאריך הנפקה", "הנפקה", "תאריך הנפקת תעודה"],
   product: ["מוצר", "סוג"],
   range: ["טווח", "טווח צבירה", "שכר"],
   balance_fee: ["מצבירה"],
@@ -402,6 +428,7 @@ const EXCEL_DEDUPE_KEYS = {
   passwords: ["company", "system", "url", "username"],
   supervisors: ["name", "company", "email", "phone"],
   employers: ["employer", "contact_name", "email"],
+  clients: ["first_name", "last_name", "national_id"],
   management_fees: ["company", "product", "range", "balance_fee", "deposit_fee", "validity"],
   insurance_discounts: ["company", "product", "agreement_number", "track", "discounts.year1", "discounts.year2", "discounts.year3", "discounts.year4", "discounts.year5to6", "validity"],
   deposit_accounts: ["company", "product", "bank", "branch", "account", "iban", "email"],
@@ -443,4 +470,6 @@ const ICONS = {
   table: '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M9 10v9M15 10v9"/></svg>',
   cards: '<svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/></svg>',
   print: '<svg viewBox="0 0 24 24"><path d="M7 8V3h10v5"/><rect x="5" y="14" width="14" height="7"/><path d="M5 18H3v-7h18v7h-2"/></svg>'
+  ,
+  settings: '<svg viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 0 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 0 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1A2 2 0 0 1 4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 0 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1A2 2 0 0 1 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3h.1a1.7 1.7 0 0 0 1-1.6V3a2 2 0 0 1 4 0v.1a1.7 1.7 0 0 0 1 1.6h.1a1.7 1.7 0 0 0 1.9-.3l.1-.1A2 2 0 0 1 19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.6 1h.1a2 2 0 0 1 0 4H21a1.7 1.7 0 0 0-1.6 1Z"/></svg>'
 };

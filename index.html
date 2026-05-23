@@ -267,6 +267,31 @@
             <button id="localSearchBtn" class="active" type="button">חיפוש בטאב</button>
             <button id="globalSearchBtn" type="button">חיפוש גלובלי</button>
           </div>
+
+          <div class="settings-menu">
+            <button id="settingsBtn" class="toolbar-button icon-only" type="button" title="הגדרות">
+              <span class="icon" data-icon="settings"></span>
+            </button>
+            <div id="settingsDropdown" class="settings-dropdown" hidden>
+              <a class="settings-item" href="import-template.xlsx" download="מרכז_תפעול_תבנית_ייבוא_ריקה.xlsx">
+                <span class="icon" data-icon="download"></span>
+                הורדת Excel לייבוא
+              </a>
+              <label class="settings-item">
+                <span class="icon" data-icon="upload"></span>
+                ייבוא Excel
+                <input id="importInput" type="file" accept="application/json,.json,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden />
+              </label>
+              <button id="settingsSignatureBtn" class="settings-item" type="button">
+                <span class="icon" data-icon="edit"></span>
+                חתימת מייל
+              </button>
+              <button id="filingEmailBtn" class="settings-item" type="button">
+                <span class="icon" data-icon="mail"></span>
+                מייל לתיוק
+              </button>
+            </div>
+          </div>
         </div>
 
         <div class="header-row secondary-row">
@@ -291,15 +316,6 @@
             <p id="moduleMeta">טוען נתונים...</p>
           </div>
           <div class="module-actions">
-            <a class="toolbar-button" href="import-template.xlsx" download="מרכז_תפעול_תבנית_ייבוא_ריקה.xlsx" title="הורדת תבנית Excel ריקה לייבוא">
-              <span class="icon" data-icon="download"></span>
-              Excel לייבוא
-            </a>
-            <label class="toolbar-button">
-              <span class="icon" data-icon="upload"></span>
-              ייבוא Excel
-              <input id="importInput" type="file" accept="application/json,.json,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden />
-            </label>
             <button id="addRecordBtn" class="toolbar-button primary module-add-button" type="button">
               <span class="icon" data-icon="plus"></span>
               הוספה
@@ -371,6 +387,23 @@
           <span class="icon" data-icon="x"></span>
         </button>
       </div>
+      <div class="send-client-panel">
+        <div class="send-client-head">
+          <div>
+            <strong>בחירת לקוח</strong>
+            <span>הלקוח יתווסף אוטומטית לנושא המייל</span>
+          </div>
+          <strong id="selectedSendClient">לא נבחר לקוח</strong>
+        </div>
+        <div class="send-search-box compact">
+          <span class="icon search-icon" data-icon="search"></span>
+          <input id="sendClientSearch" type="search" autocomplete="off" placeholder="חיפוש לקוח / ת.ז / מייל..." />
+          <button id="clearSendClientSearchBtn" class="icon-button" type="button" title="נקה חיפוש לקוח">
+            <span class="icon" data-icon="x"></span>
+          </button>
+        </div>
+        <div id="sendClientResults" class="client-pick-results"></div>
+      </div>
       <div id="sendEmailResults" class="send-results"></div>
       <div class="send-action-bar">
         <div>
@@ -380,6 +413,26 @@
         <button id="sendTemplateMailBtn" class="toolbar-button success" type="button" disabled>
           <span class="icon" data-icon="send"></span>
           שלח
+        </button>
+      </div>
+    </div>
+  </dialog>
+  <dialog id="clientDialog" class="modal">
+    <div class="modal-card client-modal">
+      <div class="modal-head">
+        <div>
+          <h3 id="clientTitle">פרטי לקוח</h3>
+          <p id="clientSubtitle"></p>
+        </div>
+        <button id="closeClientBtn" class="icon-button" aria-label="סגירה" type="button">
+          <span class="icon" data-icon="x"></span>
+        </button>
+      </div>
+      <div id="clientDetails" class="client-details"></div>
+      <div class="modal-actions">
+        <button id="mailClientBtn" class="toolbar-button primary" type="button">
+          <span class="icon" data-icon="send"></span>
+          שלח מייל ללקוח
         </button>
       </div>
     </div>
@@ -424,6 +477,27 @@
       <div class="modal-actions">
         <button class="toolbar-button" value="cancel" type="submit">ביטול</button>
         <button id="saveSignatureBtn" class="toolbar-button primary" value="default" type="submit">שמירה</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="filingEmailDialog" class="modal">
+    <form id="filingEmailForm" method="dialog" class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h3>מייל לתיוק</h3>
+          <p>כתובת זו תתווסף אוטומטית כעותק בכל מייל שיוצא מתבנית.</p>
+        </div>
+        <button class="icon-button" value="cancel" aria-label="סגירה" type="submit">
+          <span class="icon" data-icon="x"></span>
+        </button>
+      </div>
+      <label class="signature-field">
+        <span>כתובת מייל לתיוק</span>
+        <input id="filingEmailInput" type="email" placeholder="archive@example.co.il">
+      </label>
+      <div class="modal-actions">
+        <button class="toolbar-button" value="cancel" type="submit">ביטול</button>
+        <button class="toolbar-button primary" value="default" type="submit">שמירה</button>
       </div>
     </form>
   </dialog>

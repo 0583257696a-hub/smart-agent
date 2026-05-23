@@ -1,10 +1,11 @@
 const UI_STATE_KEY = "agent_ops_ui_state";
 const EMAIL_SIGNATURE_KEY = "agent_ops_email_signature";
+const FILING_EMAIL_KEY = "agent_ops_filing_email";
 const PORTAL_SESSION_KEY_FOR_APP = "agent_ops_portal_session";
 const savedUiState = parseStoredJson(UI_STATE_KEY, {});
 
 let DB = {};
-let currentModule = MODULES[savedUiState.currentModule] && !MODULES[savedUiState.currentModule].hidden
+let currentModule = MODULES[savedUiState.currentModule] && !MODULES[savedUiState.currentModule].hidden && canAccessModule(savedUiState.currentModule)
   ? savedUiState.currentModule
   : "operational_emails";
 let viewModes = parseStoredJson("agent_ops_view_modes", {});
@@ -18,10 +19,13 @@ let editing = null;
 let activeTemplate = null;
 let sendTemplate = null;
 let sendEmailQuery = "";
+let sendClientQuery = "";
+let selectedSendClientIndex = null;
 let selectedSendEmailIndexes = new Set();
 let recentSearches = parseStoredJson("agent_ops_recent_searches", []);
 let snifimQuery = "";
 let currentBankNumber = null;
+let activeClient = null;
 let didRestoreScroll = false;
 let scrollSaveTimer = null;
 
@@ -70,15 +74,18 @@ async function init() {
 function cacheElements() {
   [
     "sideNav", "mainSearch", "clearSearchBtn", "localSearchBtn", "globalSearchBtn",
-    "importInput", "addRecordBtn", "tableViewBtn", "cardViewBtn",
+    "importInput", "addRecordBtn", "tableViewBtn", "cardViewBtn", "settingsBtn", "settingsDropdown",
     "moduleTitle", "moduleMeta", "filtersBar", "results",
     "recordDialog", "recordForm", "formFields", "modalTitle", "modalSubtitle",
     "templateDialog", "templateTitle", "templateSubject", "templateBody", "closeTemplateBtn",
     "copyTemplateBtn", "sendTemplateDialog", "sendTemplateSubtitle", "closeSendTemplateBtn",
     "sendEmailSearch", "clearSendEmailSearchBtn", "sendEmailResults", "selectedSendEmail",
-    "sendTemplateMailBtn", "toast", "snifimDialog", "snifimTitle", "snifimSubtitle", 
+    "sendTemplateMailBtn", "sendClientSearch", "clearSendClientSearchBtn", "sendClientResults", "selectedSendClient",
+    "toast", "clientDialog", "clientTitle", "clientSubtitle", "clientDetails", "closeClientBtn", "mailClientBtn",
+    "snifimDialog", "snifimTitle", "snifimSubtitle", 
     "closeSnifimBtn", "snifimSearch", "clearSnifimSearchBtn", "snifimResults",
-    "emailSignatureBtn", "signatureDialog", "signatureForm", "emailSignatureInput"
+    "emailSignatureBtn", "settingsSignatureBtn", "signatureDialog", "signatureForm", "emailSignatureInput",
+    "filingEmailBtn", "filingEmailDialog", "filingEmailForm", "filingEmailInput"
   ].forEach(id => els[id] = document.getElementById(id));
 }
 
@@ -108,7 +115,20 @@ function bindEvents() {
   on(els.cardViewBtn, "click", () => setViewMode("cards"));
   on(els.importInput, "change", importData);
   on(els.addRecordBtn, "click", () => openRecordModal(currentModule));
+  on(els.settingsBtn, "click", event => {
+    event.stopPropagation();
+    els.settingsDropdown.hidden = !els.settingsDropdown.hidden;
+  });
   on(els.emailSignatureBtn, "click", openSignatureModal);
+  on(els.settingsSignatureBtn, "click", () => {
+    els.settingsDropdown.hidden = true;
+    openSignatureModal();
+  });
+  on(els.filingEmailBtn, "click", () => {
+    els.settingsDropdown.hidden = true;
+    openFilingEmailModal();
+  });
+  on(els.filingEmailForm, "submit", saveFilingEmail);
   on(els.signatureForm, "submit", saveEmailSignature);
   on(els.recordForm, "submit", saveRecord);
   on(els.recordForm, "keydown", handleRecordFormKeydown);
@@ -126,7 +146,20 @@ function bindEvents() {
     els.sendEmailSearch.value = "";
     renderSendEmailResults();
   });
+  on(els.sendClientSearch, "input", debounce(event => {
+    sendClientQuery = event.target.value;
+    renderSendClientResults();
+  }));
+  on(els.clearSendClientSearchBtn, "click", () => {
+    sendClientQuery = "";
+    els.sendClientSearch.value = "";
+    renderSendClientResults();
+  });
   on(els.sendTemplateMailBtn, "click", sendSelectedTemplateEmail);
+  on(els.closeClientBtn, "click", () => els.clientDialog.close());
+  on(els.mailClientBtn, "click", () => {
+    if (activeClient?.email) window.location.href = `mailto:${encodeURIComponent(activeClient.email)}`;
+  });
   on(els.closeSnifimBtn, "click", () => els.snifimDialog.close());
   on(els.snifimSearch, "input", debounce(event => {
     snifimQuery = event.target.value;
@@ -191,8 +224,19 @@ async function fetchSourceRows(file) {
 }
 
 function normalizeModuleRows(moduleKey, rows = []) {
+  if (moduleKey === "clients") return rows.map(normalizeClientRow);
   if (moduleKey !== "insurance_discounts") return rows;
   return normalizeInsuranceDiscountRows(rows);
+}
+
+function normalizeClientRow(row = {}) {
+  const normalized = { ...row };
+  if (!normalized.first_name && normalized.name) normalized.first_name = normalized.name;
+  if (!normalized.last_name && normalized.family) normalized.last_name = normalized.family;
+  ["first_name", "last_name", "national_id", "address", "phone", "email", "birth_date", "issue_date"].forEach(field => {
+    normalized[field] = String(normalized[field] || "").trim();
+  });
+  return normalized;
 }
 
 function normalizeInsuranceDiscountRows(rows = []) {
@@ -341,7 +385,16 @@ function isSuperAdminSession() {
   return getPortalSessionForApp()?.role === "super_admin";
 }
 
+function canAccessModule(moduleKey) {
+  const session = getPortalSessionForApp();
+  if (!session || !session.role) return true;
+  if (session.role === "super_admin") return true;
+  const permissions = Array.isArray(session.permissions) ? session.permissions : [];
+  return permissions.includes("*") || permissions.includes(moduleKey);
+}
+
 function getFieldValue(row = {}, field = "") {
+  if (field === "client_name") return clientFullName(row);
   if (!field.includes(".")) return row[field];
   return field.split(".").reduce((value, part) => value && value[part] !== undefined ? value[part] : "", row);
 }
@@ -406,6 +459,7 @@ function scoreSearch(row, value) {
 function searchAll(value) {
   const output = {};
   SEARCH_ORDER.forEach(key => {
+    if (!canAccessModule(key)) return;
     const rows = searchRows(key, value, {}, true);
     if (rows.length) output[key] = rows;
   });
@@ -459,7 +513,7 @@ function getCurrentRows() {
 
 function renderNavigation() {
   const navHtml = Object.entries(MODULES)
-    .filter(([, config]) => !config.hidden)
+    .filter(([key, config]) => !config.hidden && canAccessModule(key))
     .map(([key, config]) => navButton(key, config))
     .join("");
   els.sideNav.innerHTML = navHtml;
@@ -486,7 +540,7 @@ function moduleScopeLabel(moduleKey) {
 }
 
 function switchModule(moduleKey) {
-  if (!MODULES[moduleKey] || MODULES[moduleKey].hidden) return;
+  if (!MODULES[moduleKey] || MODULES[moduleKey].hidden || !canAccessModule(moduleKey)) return;
   currentModule = moduleKey;
   searchScope = "local";
   filters = {};
@@ -636,6 +690,9 @@ function renderTable(moduleKey, rows, compact = false) {
 }
 
 function getColumns(moduleKey) {
+  if (moduleKey === "clients") {
+    return [["client_name", "שם לקוח"], ["national_id", "ת.ז", "id_mask"], ["email", "מייל", "ltr"]];
+  }
   if (moduleKey === "management_fees" && feeProduct && /פנסיה/.test(feeProduct)) {
     return withoutSourceColumn([["range", "שכר"], ["deposit_fee", "מהפקדה"], ["balance_fee", "מצבירה"], ["validity", "תוקף"]]);
   }
@@ -649,7 +706,7 @@ function withoutSourceColumn(columns = []) {
 function renderTableRow(moduleKey, row, index, columns, config) {
   const rowClass = moduleKey === "management_fees" && isBestFee(row) ? "best-row" : "";
   return `
-    <tr class="${rowClass}">
+    <tr class="${rowClass} ${moduleKey === "clients" ? "clickable-row" : ""}" ${moduleKey === "clients" ? `data-open-client-index="${index}"` : ""}>
       ${columns.map(([field, , type]) => {
         const value = getFieldValue(row, field);
         const cellClasses = [
@@ -671,6 +728,7 @@ function looksNumericCell(value = "") {
 
 function formatCell(value = "", type) {
   if (type === "password") return "<span class=\"password-mask\">********</span>";
+  if (type === "id_mask") return escapeHtml(maskNationalId(value));
   const text = decodeEscapedNewlines(value);
   return escapeHtml(text.length > 130 ? text.slice(0, 130) + "..." : text);
 }
@@ -746,6 +804,7 @@ function renderActions(moduleKey, row, index) {
     copyBankNumber: row.bank_number ? actionButton("copy", "מספר", "copy", row.bank_number) : "",
     viewSnifim: row.bank_number ? actionButton("table", "סניפים", "viewSnifim", row.bank_number, "primary") : "",
     copyContact: row.contact ? actionButton("copy", "קשר", "copy", row.contact) : "",
+    openClient: actionButton("open", "פתח", "openClient", index, "primary"),
     copyRow: actionButton("copy", "שורה", "copyRow", `${moduleKey}:${index}`),
     edit: actionButton("edit", "ערוך", "edit", `${moduleKey}:${index}`),
     delete: actionButton("trash", "מחק", "delete", `${moduleKey}:${index}`, "danger")
@@ -758,6 +817,14 @@ function actionButton(icon, label, action, value, variant = "") {
 }
 
 function handleDocumentClick(event) {
+  if (els.settingsDropdown && !event.target.closest(".settings-menu")) {
+    els.settingsDropdown.hidden = true;
+  }
+  const clientRow = event.target.closest("[data-open-client-index]");
+  if (clientRow && !event.target.closest("[data-action]")) {
+    openClientModal(Number(clientRow.dataset.openClientIndex));
+    return;
+  }
   const filterButton = event.target.closest("[data-fee-company], [data-fee-product]");
   if (filterButton?.dataset.feeCompany) {
     feeCompany = filterButton.dataset.feeCompany;
@@ -789,9 +856,17 @@ function handleDocumentClick(event) {
   }
 
   const sendEmailRow = event.target.closest("[data-send-email-index]");
-  if (!sendEmailRow) return;
-  toggleSendEmailSelection(Number(sendEmailRow.dataset.sendEmailIndex));
-  renderSendEmailResults();
+  if (sendEmailRow) {
+    toggleSendEmailSelection(Number(sendEmailRow.dataset.sendEmailIndex));
+    renderSendEmailResults();
+    return;
+  }
+
+  const sendClientRow = event.target.closest("[data-send-client-index]");
+  if (!sendClientRow) return;
+  const index = Number(sendClientRow.dataset.sendClientIndex);
+  selectedSendClientIndex = selectedSendClientIndex === index ? null : index;
+  renderSendClientResults();
 }
 
 document.addEventListener("change", event => {
@@ -833,6 +908,7 @@ function handleAction(action, value) {
   }
   if (action === "openTemplate") openTemplate(Number(value));
   if (action === "sendTemplate") openSendTemplateModal(Number(value));
+  if (action === "openClient") openClientModal(Number(value));
   if (action === "viewSnifim") openSnifimModal(value);
 }
 
@@ -972,9 +1048,13 @@ function openSendTemplateModal(index) {
   sendTemplate = DB.email_templates[index];
   if (!sendTemplate) return;
   sendEmailQuery = "";
+  sendClientQuery = "";
+  selectedSendClientIndex = null;
   selectedSendEmailIndexes = new Set();
   els.sendEmailSearch.value = "";
+  if (els.sendClientSearch) els.sendClientSearch.value = "";
   els.sendTemplateSubtitle.textContent = `${sendTemplate.title || "תבנית מייל"} · ${sendTemplate.subject || ""}`;
+  renderSendClientResults();
   renderSendEmailResults();
   els.sendTemplateDialog.showModal();
   window.setTimeout(() => els.sendEmailSearch.focus(), 60);
@@ -997,6 +1077,33 @@ function renderSendEmailResults() {
       <span class="send-email ltr">${escapeHtml(row.email || "")}</span>
     </button>
   `).join("");
+}
+
+function renderSendClientResults() {
+  if (!els.sendClientResults) return;
+  const rows = getSendClientCandidates();
+  const selected = selectedSendClientIndex !== null ? DB.clients?.[selectedSendClientIndex] : null;
+  els.selectedSendClient.textContent = selected ? `${clientFullName(selected)} · ${maskNationalId(selected.national_id)}` : "לא נבחר לקוח";
+  if (!rows.length) {
+    els.sendClientResults.innerHTML = `<div class="send-empty compact">לא נמצאו לקוחות תואמים</div>`;
+    return;
+  }
+  els.sendClientResults.innerHTML = rows.map(({ row, index }) => `
+    <button class="client-pick ${selectedSendClientIndex === index ? "selected" : ""}" type="button" data-send-client-index="${index}">
+      <span>${escapeHtml(clientFullName(row) || "ללא שם")}</span>
+      <b>${escapeHtml(maskNationalId(row.national_id))}</b>
+      <small class="ltr">${escapeHtml(row.email || "")}</small>
+    </button>
+  `).join("");
+}
+
+function getSendClientCandidates() {
+  const value = sendClientQuery.trim();
+  const rows = (DB.clients || []).map((row, index) => ({ row, index }));
+  const filtered = value
+    ? rows.filter(item => matchesSearch(item.row, value))
+    : rows.slice(0, 8);
+  return filtered.slice(0, 20);
 }
 
 function getSendEmailCandidates() {
@@ -1041,10 +1148,21 @@ function getSelectedSendEmails() {
 function sendSelectedTemplateEmail() {
   const targetEmails = getSelectedSendEmails();
   if (!targetEmails.length || !sendTemplate) return;
-  const subject = encodeURIComponent(addRtlMarks(decodeEscapedNewlines(sendTemplate.subject || "")));
+  const selectedClient = selectedSendClientIndex !== null ? DB.clients?.[selectedSendClientIndex] : null;
+  const subjectText = buildTemplateSubject(sendTemplate.subject || "", selectedClient);
+  const subject = encodeURIComponent(addRtlMarks(subjectText));
   const body = encodeURIComponent(formatMailtoRtlPlainText(buildEmailBodyWithSignature(sendTemplate.body || "")));
-  window.location.href = `mailto:${targetEmails.map(encodeURIComponent).join(";")}?subject=${subject}&body=${body}`;
+  const filingEmail = getFilingEmail();
+  const cc = filingEmail ? `&cc=${encodeURIComponent(filingEmail)}` : "";
+  window.location.href = `mailto:${targetEmails.map(encodeURIComponent).join(";")}?subject=${subject}${cc}&body=${body}`;
   targetEmails.forEach(rememberRecentTemplateEmail);
+}
+
+function buildTemplateSubject(subject = "", client = null) {
+  const cleanSubject = decodeEscapedNewlines(subject || "").trim();
+  if (!client) return cleanSubject;
+  const clientPart = [clientFullName(client), client.national_id].filter(Boolean).join(" ");
+  return clientPart ? `${clientPart} - ${cleanSubject}` : cleanSubject;
 }
 
 function buildEmailBodyWithSignature(templateBody = "") {
@@ -1052,6 +1170,24 @@ function buildEmailBodyWithSignature(templateBody = "") {
   const signature = getEmailSignature().trim();
   if (!signature) return body;
   return `${body}\n\n${signature}`;
+}
+
+function openFilingEmailModal() {
+  if (!els.filingEmailDialog || !els.filingEmailInput) return;
+  els.filingEmailInput.value = getFilingEmail();
+  els.filingEmailDialog.showModal();
+  window.setTimeout(() => els.filingEmailInput.focus(), 60);
+}
+
+function saveFilingEmail(event) {
+  event.preventDefault();
+  localStorage.setItem(FILING_EMAIL_KEY, els.filingEmailInput?.value.trim() || "");
+  els.filingEmailDialog.close();
+  toast("מייל לתיוק נשמר");
+}
+
+function getFilingEmail() {
+  return localStorage.getItem(FILING_EMAIL_KEY) || "";
 }
 
 function openSignatureModal() {
@@ -1070,6 +1206,44 @@ function saveEmailSignature(event) {
 
 function getEmailSignature() {
   return localStorage.getItem(EMAIL_SIGNATURE_KEY) || "";
+}
+
+function openClientModal(index) {
+  activeClient = DB.clients?.[index];
+  if (!activeClient) return;
+  els.clientTitle.textContent = clientFullName(activeClient) || "פרטי לקוח";
+  els.clientSubtitle.textContent = `${maskNationalId(activeClient.national_id)} · ${activeClient.email || ""}`;
+  els.mailClientBtn.disabled = !activeClient.email;
+  const fields = [
+    ["שם מלא", clientFullName(activeClient)],
+    ["ת.ז", activeClient.national_id],
+    ["כתובת מלאה", activeClient.address],
+    ["טלפון", activeClient.phone],
+    ["מייל", activeClient.email],
+    ["תאריך לידה", activeClient.birth_date],
+    ["תאריך הנפקה", activeClient.issue_date]
+  ];
+  els.clientDetails.innerHTML = fields.map(([label, value]) => `
+    <div class="client-detail-row">
+      <span>${escapeHtml(label)}</span>
+      <strong class="${looksLtr(value) ? "ltr" : ""}">${escapeHtml(value || "")}</strong>
+      <button class="copy-icon-only" type="button" data-action="copy" data-value="${escapeHtml(value || "")}" title="העתקה">
+        ${ICONS.copy}
+      </button>
+    </div>
+  `).join("");
+  hydrateIcons(els.clientDetails);
+  els.clientDialog.showModal();
+}
+
+function clientFullName(client = {}) {
+  return [client.first_name, client.last_name].filter(Boolean).join(" ").trim();
+}
+
+function maskNationalId(value = "") {
+  const text = String(value || "").trim();
+  if (text.length <= 2) return text;
+  return `${text.slice(0, 2)}${"*".repeat(Math.max(text.length - 2, 0))}`;
 }
 
 function addRtlMarks(value = "") {

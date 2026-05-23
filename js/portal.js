@@ -7,6 +7,7 @@ const ADMIN_MODULE_PERMISSIONS = [
   ["passwords", "סיסמאות"],
   ["supervisors", "מפקחים"],
   ["employers", "מעסיקים"],
+  ["clients", "לקוחות"],
   ["management_fees", "דמי ניהול"],
   ["insurance_discounts", "הנחות ביטוח"],
   ["deposit_accounts", "חשבונות"],
@@ -471,7 +472,7 @@ function permissionCheckbox(key, label, permissions, role) {
 function defaultPermissionsForRole(role = "agent") {
   if (role === "super_admin") return ["*"];
   if (role === "agency_admin") return ADMIN_MODULE_PERMISSIONS.map(([key]) => key);
-  return ["operational_emails", "email_templates", "management_fees", "insurance_discounts", "service_centers", "institution_codes", "bank_numbers"];
+  return ["operational_emails", "email_templates", "clients", "management_fees", "insurance_discounts", "service_centers", "institution_codes", "bank_numbers"];
 }
 
 function normalizePermissions(value, role = "agent") {
