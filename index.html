@@ -267,8 +267,6 @@
             <button id="localSearchBtn" class="active" type="button">חיפוש בטאב</button>
             <button id="globalSearchBtn" type="button">חיפוש גלובלי</button>
           </div>
-
-          <input id="importInput" type="file" accept="application/json,.json,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden />
         </div>
 
         <div class="header-row secondary-row">
@@ -292,10 +290,21 @@
             <h2 id="moduleTitle">מיילים תפעוליים</h2>
             <p id="moduleMeta">טוען נתונים...</p>
           </div>
-          <button id="addRecordBtn" class="toolbar-button primary module-add-button" type="button">
-            <span class="icon" data-icon="plus"></span>
-            הוספה
-          </button>
+          <div class="module-actions">
+            <a class="toolbar-button" href="import-template.xlsx" download="מרכז_תפעול_תבנית_ייבוא_ריקה.xlsx" title="הורדת תבנית Excel ריקה לייבוא">
+              <span class="icon" data-icon="download"></span>
+              Excel לייבוא
+            </a>
+            <label class="toolbar-button">
+              <span class="icon" data-icon="upload"></span>
+              ייבוא Excel
+              <input id="importInput" type="file" accept="application/json,.json,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden />
+            </label>
+            <button id="addRecordBtn" class="toolbar-button primary module-add-button" type="button">
+              <span class="icon" data-icon="plus"></span>
+              הוספה
+            </button>
+          </div>
         </div>
 
         <div id="filtersBar" class="filters-bar"></div>

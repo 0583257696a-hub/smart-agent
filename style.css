@@ -1188,6 +1188,14 @@ label {
   color: var(--muted);
 }
 
+.module-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .module-add-button {
   flex: 0 0 auto;
   min-width: 112px;
