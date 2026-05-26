@@ -1,4 +1,10 @@
 node_modules/
+.next/
+out/
+public/assets/
+public/data/
+public/js/
+public/*.xlsx
 *.log
 server-*.out.log
 server-*.err.log
