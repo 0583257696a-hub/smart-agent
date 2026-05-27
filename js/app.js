@@ -74,7 +74,7 @@ async function init() {
 function cacheElements() {
   [
     "sideNav", "mainSearch", "clearSearchBtn", "localSearchBtn", "globalSearchBtn",
-    "importInput", "addRecordBtn", "tableViewBtn", "cardViewBtn", "settingsBtn", "settingsDropdown",
+    "importInput", "addRecordBtn", "tableViewBtn", "cardViewBtn", "settingsBtn", "settingsDropdown", "backupExcelBtn",
     "moduleTitle", "moduleMeta", "filtersBar", "results",
     "recordDialog", "recordForm", "formFields", "modalTitle", "modalSubtitle",
     "templateDialog", "templateTitle", "templateSubject", "templateBody", "closeTemplateBtn",
@@ -123,6 +123,10 @@ function bindEvents() {
   on(els.settingsSignatureBtn, "click", () => {
     els.settingsDropdown.hidden = true;
     openSignatureModal();
+  });
+  on(els.backupExcelBtn, "click", () => {
+    els.settingsDropdown.hidden = true;
+    exportAllData();
   });
   on(els.filingEmailBtn, "click", () => {
     els.settingsDropdown.hidden = true;
